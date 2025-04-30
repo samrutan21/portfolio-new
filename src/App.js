@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import headshot from './images/samrutan-headshot-1.jpg';
 import salesGraph from '/Users/samrutan/portfolio-new/src/images/revenue_comparison.png';
+import ChatInterface from './components/ChatInterface';
 
 // Collapsible Category Component
 const CollapsibleCategory = ({ title, content }) => {
@@ -449,7 +450,7 @@ const Portfolio = () => {
                         <div style={{ aspectRatio: '16/9' }}>
                           <img 
                             src="/api/placeholder/600/340" 
-                            alt="Software Project 1" 
+                            alt="LLM Bot Python Project" 
                             style={{
                               width: '100%',
                               height: '100%',
@@ -458,9 +459,9 @@ const Portfolio = () => {
                           />
                         </div>
                         <div style={{ padding: '24px' }}>
-                          <h3 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '12px' }}>NOMAD WEATHER APP</h3>
+                          <h3 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '12px' }}>LLM ChatBot</h3>
                           <p style={{ color: '#999', marginBottom: '16px', lineHeight: '1.6' }}>
-                            A location-based weather application with travel planning features, designed for digital nomads.
+                            A Python-based chatbot leveraging Large Language Models to provide intelligent responses and automate tasks. Features include natural language processing, context awareness, and a graph database implementation for efficient knowledge representation and retrieval.
                           </p>
                           <div style={{ display: 'flex', gap: '8px', marginBottom: '20px' }}>
                             <span style={{ 
@@ -469,7 +470,7 @@ const Portfolio = () => {
                               fontSize: '12px', 
                               borderRadius: '4px'
                             }}>
-                              React
+                              Python
                             </span>
                             <span style={{ 
                               backgroundColor: 'rgba(255,255,255,0.1)', 
@@ -477,7 +478,7 @@ const Portfolio = () => {
                               fontSize: '12px',
                               borderRadius: '4px'
                             }}>
-                              Node.js
+                              LLM
                             </span>
                             <span style={{ 
                               backgroundColor: 'rgba(255,255,255,0.1)', 
@@ -485,10 +486,21 @@ const Portfolio = () => {
                               fontSize: '12px',
                               borderRadius: '4px'
                             }}>
-                              Weather API
+                              Graph DB
+                            </span>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px',
+                              borderRadius: '4px'
+                            }}>
+                              NLP
                             </span>
                           </div>
-                          <a href="#" style={{
+                          <div style={{ marginBottom: '24px' }}>
+                            <ChatInterface />
+                          </div>
+                          <a href="https://github.com/samrutan21/llm-bot-python" style={{
                             display: 'inline-block',
                             color: 'white',
                             border: '1px solid white',
@@ -797,7 +809,7 @@ const Portfolio = () => {
                   }}>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Freelance Automation Engineer</h4>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Software Engineer</h4>
                         <span style={{ color: '#666' }}>2024 - 2025</span>
                       </div>
                       <p style={{ color: '#999' }}>CIFC Asset Management (New York City)</p>
