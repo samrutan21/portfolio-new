@@ -134,37 +134,6 @@ const Portfolio = () => {
             padding: '0 24px',
             position: 'relative'
           }}>
-            {/* Headshot with refined professional glow effect */}
-            <div style={{
-              position: 'absolute',
-              top: '100px',
-              left: '580px',
-              zIndex: 10
-            }}>
-              {/* Premium headshot container with just the glow */}
-              <div style={{
-                width: '300px',
-                height: '300px',
-                borderRadius: '50%',
-                overflow: 'hidden',
-                border: '1px solid rgba(0, 255, 255, 0.3)',
-                boxShadow: '0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(0, 255, 255, 0.3), 0 0 60px rgba(0, 255, 255, 0.1)',
-                position: 'relative',
-                zIndex: 2
-              }}>
-                <img 
-                  src={headshot} 
-                  alt="Sam Rutan Headshot" 
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    objectPosition: 'center 10%'
-                  }}
-                />
-              </div>
-            </div>
-            
             {/* Original content - unchanged */}
             <div style={{
               maxWidth: '1200px',
@@ -736,87 +705,117 @@ const Portfolio = () => {
             
             <div style={{
               display: 'flex',
-              flexDirection: 'column',
-              gap: '40px'
+              flexDirection: 'row',
+              gap: '40px',
+              alignItems: 'flex-start'
             }}>
-              <div>
-                <p style={{ fontSize: '18px', lineHeight: '1.6', color: '#ccc', marginBottom: '24px' }}>
-                  I'm Sam Rutan, a versatile creative professional based in Los Angeles. My background spans multiple disciplines including Film Production, Software Development, and Business Growth, allowing me to bridge the gap between creative vision and technical execution.
-                </p>
-                <p style={{ fontSize: '18px', lineHeight: '1.6', color: '#ccc', marginBottom: '24px' }}>
-                  My approach combines strategic thinking with innovative problem-solving. I've worked with brands across various industries to create compelling experiences that connect with audiences and achieve business objectives.
-                </p>
-                <p style={{ fontSize: '18px', lineHeight: '1.6', color: '#ccc' }}>
-                  When I'm not working, you'll find me exploring new technologies, playing and creating music, or seeking inspiration through travel and cultural experiences.
-                </p>
+              {/* Headshot */}
+              <div style={{
+                width: '300px',
+                height: '300px',
+                borderRadius: '50%',
+                overflow: 'hidden',
+                border: '1px solid rgba(0, 255, 255, 0.3)',
+                boxShadow: '0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(0, 255, 255, 0.3), 0 0 60px rgba(0, 255, 255, 0.1)',
+                flexShrink: 0
+              }}>
+                <img 
+                  src={headshot} 
+                  alt="Sam Rutan Headshot" 
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center 10%'
+                  }}
+                />
               </div>
-              
-              {/* Skills */}
-              <div style={{ marginTop: '40px' }}>
-                <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '24px' }}>EXPERTISE</h3>
-                <div style={{ 
-                  display: 'grid', 
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-                  gap: '24px' 
-                }}>
-                  <div>
-                    <h4 style={{ marginBottom: '16px', fontSize: '18px' }}>Film</h4>
-                    <ul style={{ color: '#999', listStyle: 'none', padding: 0 }}>
-                      <li style={{ marginBottom: '8px' }}>Video Editing</li>
-                      <li style={{ marginBottom: '8px' }}>Collaboration</li>
-                      <li style={{ marginBottom: '8px' }}>Art Direction</li>
-                      <li style={{ marginBottom: '8px' }}>Storytelling</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 style={{ marginBottom: '16px', fontSize: '18px' }}>Technology</h4>
-                    <ul style={{ color: '#999', listStyle: 'none', padding: 0 }}>
-                      <li style={{ marginBottom: '8px' }}>Frontend (React, JS)</li>
-                      <li style={{ marginBottom: '8px' }}>Backend Architecture (Python, SQL)</li>
-                      <li style={{ marginBottom: '8px' }}>Responsive Design</li>
-                      <li style={{ marginBottom: '8px' }}>User Friendly Creativity</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 style={{ marginBottom: '16px', fontSize: '18px' }}>Business Development</h4>
-                    <ul style={{ color: '#999', listStyle: 'none', padding: 0 }}>
-                      <li style={{ marginBottom: '8px' }}>Funnel Building</li>
-                      <li style={{ marginBottom: '8px' }}>Conversion</li>
-                      <li style={{ marginBottom: '8px' }}>Customer Success</li>
-                      <li style={{ marginBottom: '8px' }}>Analytics and Research</li>
-                    </ul>
+
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '40px',
+                flex: 1
+              }}>
+                <div>
+                  <p style={{ fontSize: '18px', lineHeight: '1.6', color: '#ccc', marginBottom: '24px' }}>
+                    I'm Sam Rutan, a versatile creative professional based in Los Angeles. My background spans multiple disciplines including Film Production, Software Development, and Business Growth, allowing me to bridge the gap between creative vision and technical execution.
+                  </p>
+                  <p style={{ fontSize: '18px', lineHeight: '1.6', color: '#ccc', marginBottom: '24px' }}>
+                    My approach combines strategic thinking with innovative problem-solving. I've worked with brands across various industries to create compelling experiences that connect with audiences and achieve business objectives.
+                  </p>
+                  <p style={{ fontSize: '18px', lineHeight: '1.6', color: '#ccc' }}>
+                    When I'm not working, you'll find me exploring new technologies, playing and creating music, or seeking inspiration through travel and cultural experiences.
+                  </p>
+                </div>
+                
+                {/* Skills */}
+                <div style={{ marginTop: '40px' }}>
+                  <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '24px' }}>EXPERTISE</h3>
+                  <div style={{ 
+                    display: 'grid', 
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+                    gap: '24px' 
+                  }}>
+                    <div>
+                      <h4 style={{ marginBottom: '16px', fontSize: '18px' }}>Film</h4>
+                      <ul style={{ color: '#999', listStyle: 'none', padding: 0 }}>
+                        <li style={{ marginBottom: '8px' }}>Video Editing</li>
+                        <li style={{ marginBottom: '8px' }}>Collaboration</li>
+                        <li style={{ marginBottom: '8px' }}>Art Direction</li>
+                        <li style={{ marginBottom: '8px' }}>Storytelling</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 style={{ marginBottom: '16px', fontSize: '18px' }}>Technology</h4>
+                      <ul style={{ color: '#999', listStyle: 'none', padding: 0 }}>
+                        <li style={{ marginBottom: '8px' }}>Frontend (React, JS)</li>
+                        <li style={{ marginBottom: '8px' }}>Backend Architecture (Python, SQL)</li>
+                        <li style={{ marginBottom: '8px' }}>Responsive Design</li>
+                        <li style={{ marginBottom: '8px' }}>User Friendly Creativity</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 style={{ marginBottom: '16px', fontSize: '18px' }}>Business Development</h4>
+                      <ul style={{ color: '#999', listStyle: 'none', padding: 0 }}>
+                        <li style={{ marginBottom: '8px' }}>Funnel Building</li>
+                        <li style={{ marginBottom: '8px' }}>Conversion</li>
+                        <li style={{ marginBottom: '8px' }}>Customer Success</li>
+                        <li style={{ marginBottom: '8px' }}>Analytics and Research</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
-              
-              {/* Experience */}
-              <div style={{ marginTop: '40px' }}>
-                <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '24px' }}>EXPERIENCE</h3>
-                <div style={{ 
-                  display: 'flex', 
-                  flexDirection: 'column',
-                  gap: '16px' 
-                }}>
-                  <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                      <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Freelance Automation Engineer</h4>
-                      <span style={{ color: '#666' }}>2024 - 2025</span>
+                
+                {/* Experience */}
+                <div style={{ marginTop: '40px' }}>
+                  <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '24px' }}>EXPERIENCE</h3>
+                  <div style={{ 
+                    display: 'flex', 
+                    flexDirection: 'column',
+                    gap: '16px' 
+                  }}>
+                    <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Freelance Automation Engineer</h4>
+                        <span style={{ color: '#666' }}>2024 - 2025</span>
+                      </div>
+                      <p style={{ color: '#999' }}>CIFC Asset Management (New York City)</p>
                     </div>
-                    <p style={{ color: '#999' }}>CIFC Asset Management (New York City)</p>
-                  </div>
-                  <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                      <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Territory Sales Manager</h4>
-                      <span style={{ color: '#666' }}>2022 - 2024</span>
+                    <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Territory Sales Manager</h4>
+                        <span style={{ color: '#666' }}>2022 - 2024</span>
+                      </div>
+                      <p style={{ color: '#999' }}>Zomedica Animal Healthcare (Southern California)</p>
                     </div>
-                    <p style={{ color: '#999' }}>Zomedica Animal Healthcare (Southern California)</p>
-                  </div>
-                  <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                      <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Assistant Video Editor</h4>
-                      <span style={{ color: '#666' }}>2016 -2022</span>
+                    <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Assistant Video Editor</h4>
+                        <span style={{ color: '#666' }}>2016 -2022</span>
+                      </div>
+                      <p style={{ color: '#999' }}>(Netflix, Amazon, Disney, Whitehouse Post(Advertising), Independent Documentaries/Virtual Reality)</p>
                     </div>
-                    <p style={{ color: '#999' }}>(Netflix, Amazon, Disney, Whitehouse Post(Advertising), Independent Documentaries/Virtual Reality)</p>
                   </div>
                 </div>
               </div>
