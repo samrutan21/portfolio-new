@@ -447,7 +447,7 @@ const Portfolio = () => {
                           ></iframe>
                         </div>
                         
-                        <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px' }}>Live Performance</h3>
+                        <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px' }}>AI Generated Music</h3>
                         <p style={{ color: '#999', lineHeight: '1.6', marginBottom: '24px' }}>
                           A song generated using Suno. Visualizer created using a blend of Midjourney and Vizzy.
                         </p>
