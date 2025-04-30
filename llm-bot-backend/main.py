@@ -3,6 +3,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import os
 from dotenv import load_dotenv
+from neo4j import GraphDatabase
+from langchain.chat_models import ChatOpenAI
+from langchain.chains import GraphCypherQAChain
+from langchain.graphs import Neo4jGraph
 
 # Load environment variables
 load_dotenv()
@@ -18,15 +22,36 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
+# Neo4j connection
+NEO4J_URI = os.getenv("NEO4J_URI")
+NEO4J_USER = os.getenv("NEO4J_USER")
+NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD")
+
+# Initialize Neo4j graph
+graph = Neo4jGraph(
+    url=NEO4J_URI,
+    username=NEO4J_USER,
+    password=NEO4J_PASSWORD
+)
+
+# Initialize LLM
+llm = ChatOpenAI(temperature=0)
+
+# Create QA chain
+chain = GraphCypherQAChain.from_llm(
+    llm=llm,
+    graph=graph,
+    verbose=True
+)
+
 class Message(BaseModel):
     message: str
 
 @app.post("/chat")
 async def chat(message: Message):
     try:
-        # TODO: Replace with your actual LLM bot logic
-        # For now, we'll just echo the message back
-        response = f"Echo: {message.message}"
+        # Use the chain to get response from the graph database
+        response = chain.run(message.message)
         
         return {"response": response}
     except Exception as e:
