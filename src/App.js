@@ -263,46 +263,19 @@ const Portfolio = () => {
                         overflow: 'hidden',
                         backgroundColor: '#111'
                       }}>
-                        {/* Replace this with your actual video embed */}
-                        <div style={{
-                          position: 'absolute',
-                          top: 0,
-                          left: 0,
-                          width: '100%',
-                          height: '100%',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center'
-                        }}>
-                          <img 
-                            src="/api/placeholder/1280/720" 
-                            alt="Video Reel Placeholder" 
-                            style={{
-                              width: '100%',
-                              height: '100%',
-                              objectFit: 'cover'
-                            }}
-                          />
-                          <div style={{
+                        <iframe
+                          src="https://player.vimeo.com/video/1080037919?h=0"
+                          style={{
                             position: 'absolute',
-                            width: '80px',
-                            height: '80px',
-                            borderRadius: '50%',
-                            backgroundColor: 'rgba(255,255,255,0.2)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center'
-                          }}>
-                            <div style={{
-                              width: 0,
-                              height: 0,
-                              borderTop: '20px solid transparent',
-                              borderBottom: '20px solid transparent',
-                              borderLeft: '30px solid white',
-                              marginLeft: '8px'
-                            }}></div>
-                          </div>
-                        </div>
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%'
+                          }}
+                          frameBorder="0"
+                          allow="autoplay; fullscreen; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
                       </div>
                       
                       <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px' }}>Editor's Reel 2024</h3>
