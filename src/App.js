@@ -497,83 +497,17 @@ const Portfolio = () => {
                               NLP
                             </span>
                           </div>
-                          <div style={{ marginBottom: '24px' }}>
-                            <ChatInterface />
-                          </div>
-                          <a href="https://github.com/samrutan21/llm-bot-python" style={{
-                            display: 'inline-block',
-                            color: 'white',
-                            border: '1px solid white',
-                            padding: '8px 16px',
-                            textDecoration: 'none',
-                            fontSize: '14px',
-                            letterSpacing: '1px'
-                          }}>
-                            VIEW PROJECT
-                          </a>
                         </div>
                       </div>
                       
-                      {/* Project 2 */}
+                      {/* Chat Interface */}
                       <div style={{
                         backgroundColor: '#111',
                         borderRadius: '8px',
-                        overflow: 'hidden'
+                        overflow: 'hidden',
+                        gridColumn: '1 / -1'
                       }}>
-                        <div style={{ aspectRatio: '16/9' }}>
-                          <img 
-                            src="/api/placeholder/600/340" 
-                            alt="Software Project 2" 
-                            style={{
-                              width: '100%',
-                              height: '100%',
-                              objectFit: 'cover'
-                            }}
-                          />
-                        </div>
-                        <div style={{ padding: '24px' }}>
-                          <h3 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '12px' }}>PORTFOLIO CMS</h3>
-                          <p style={{ color: '#999', marginBottom: '16px', lineHeight: '1.6' }}>
-                            A content management system designed specifically for creative professionals to showcase their work.
-                          </p>
-                          <div style={{ display: 'flex', gap: '8px', marginBottom: '20px' }}>
-                            <span style={{ 
-                              backgroundColor: 'rgba(255,255,255,0.1)', 
-                              padding: '4px 8px', 
-                              fontSize: '12px',
-                              borderRadius: '4px'
-                            }}>
-                              MongoDB
-                            </span>
-                            <span style={{ 
-                              backgroundColor: 'rgba(255,255,255,0.1)', 
-                              padding: '4px 8px', 
-                              fontSize: '12px',
-                              borderRadius: '4px'
-                            }}>
-                              Express
-                            </span>
-                            <span style={{ 
-                              backgroundColor: 'rgba(255,255,255,0.1)', 
-                              padding: '4px 8px', 
-                              fontSize: '12px',
-                              borderRadius: '4px'
-                            }}>
-                              AWS
-                            </span>
-                          </div>
-                          <a href="#" style={{
-                            display: 'inline-block',
-                            color: 'white',
-                            border: '1px solid white',
-                            padding: '8px 16px',
-                            textDecoration: 'none',
-                            fontSize: '14px',
-                            letterSpacing: '1px'
-                          }}>
-                            VIEW PROJECT
-                          </a>
-                        </div>
+                        <ChatInterface />
                       </div>
                     </div>
                   </div>
