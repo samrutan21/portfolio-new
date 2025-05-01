@@ -66,7 +66,21 @@ const ChatInterface = () => {
         marginBottom: '24px',
         padding: '16px',
         backgroundColor: 'rgba(0,0,0,0.3)',
-        borderRadius: '8px'
+        borderRadius: '8px',
+        '&::-webkit-scrollbar': {
+          width: '8px',
+        },
+        '&::-webkit-scrollbar-track': {
+          background: 'rgba(0,0,0,0.1)',
+          borderRadius: '4px',
+        },
+        '&::-webkit-scrollbar-thumb': {
+          background: 'rgba(255,255,255,0.2)',
+          borderRadius: '4px',
+          '&:hover': {
+            background: 'rgba(255,255,255,0.3)',
+          },
+        }
       }}>
         {messages.map((message, index) => (
           <div

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import headshot from './images/samrutan-headshot-1.jpg';
 import salesGraph from '/Users/samrutan/portfolio-new/src/images/revenue_comparison.png';
+import llmBotImage from './images/agentforce-marquee-llms.png';
 import ChatInterface from './components/ChatInterface';
 
 // Collapsible Category Component
@@ -449,7 +450,7 @@ const Portfolio = () => {
                       }}>
                         <div style={{ aspectRatio: '16/9' }}>
                           <img 
-                            src="/images/agentforce-marquee-llms.png" 
+                            src={llmBotImage}
                             alt="LLM Bot Python Project" 
                             style={{
                               width: '100%',
