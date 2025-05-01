@@ -449,7 +449,7 @@ const Portfolio = () => {
                       }}>
                         <div style={{ aspectRatio: '16/9' }}>
                           <img 
-                            src="/api/placeholder/600/340" 
+                            src="/images/agentforce-marquee-llms.png" 
                             alt="LLM Bot Python Project" 
                             style={{
                               width: '100%',
@@ -505,7 +505,7 @@ const Portfolio = () => {
                         backgroundColor: '#111',
                         borderRadius: '8px',
                         overflow: 'hidden',
-                        gridColumn: '1 / -1'
+                        maxWidth: '350px'
                       }}>
                         <ChatInterface />
                       </div>

@@ -51,7 +51,32 @@ def get_response(message: str) -> str:
     if message in KNOWLEDGE_BASE:
         return KNOWLEDGE_BASE[message]
     
-    # Check for partial matches
+    # Check for partial matches and natural follow-ups
+    if any(phrase in message for phrase in ["tell me more", "more about", "more info", "more details"]):
+        return "The full version uses Llama 3.2 for language processing, Neo4j for graph database storage, and vector embeddings for semantic search. These technologies have been implemented professionally and are also showcased in a movie database demo. Would you like to know about the professional implementation?"
+    
+    if any(phrase in message for phrase in ["professional", "implementation", "where was it used", "where was this used"]):
+        return "Sam built a sophisticated LLM chatbot for a financial firm, using Llama 3.2, Neo4j graph database, and vector embeddings to provide intelligent responses and automate complex queries. This implementation demonstrated the practical application of these technologies in a professional environment. Would you like to know more about the specific technologies used?"
+    
+    if any(phrase in message for phrase in ["technologies", "tech", "what do you use", "what's used"]):
+        return "The full version uses Llama 3.2 for language processing, Neo4j for graph database storage, and vector embeddings for semantic search. These technologies have been implemented professionally and are also showcased in a movie database demo. Would you like to know more about how they work together?"
+    
+    if any(phrase in message for phrase in ["how does it work", "how do they work", "work together", "how they work"]):
+        return "The full version combines Llama 3.2 for understanding natural language, Neo4j for storing and querying data in a graph structure, and vector embeddings for semantic search. This architecture has been implemented professionally and is also demonstrated in a movie database demo. Would you like to know more about any specific component?"
+    
+    if any(phrase in message for phrase in ["component", "specific part", "specific technology"]):
+        return "The system has three main components: Llama 3.2 for natural language understanding, Neo4j for graph-based data storage, and vector embeddings for semantic search. Each component plays a crucial role in the system's functionality. Would you like to know more about any of these specifically?"
+    
+    if any(phrase in message for phrase in ["llama", "language model", "language processing"]):
+        return "Llama 3.2 is a powerful language model that enables the chatbot to understand and generate natural language responses. It's particularly effective at understanding complex queries and providing relevant answers. Would you like to know about the other components?"
+    
+    if any(phrase in message for phrase in ["neo4j", "graph", "database"]):
+        return "Neo4j is a graph database that stores data in nodes and relationships, making it perfect for representing complex connections. It's been used professionally to model relationships between entities and is also demonstrated in a movie database demo. Would you like to know about the other components?"
+    
+    if any(phrase in message for phrase in ["vector", "embeddings", "semantic"]):
+        return "Vector embeddings are numerical representations of text that capture semantic meaning. They allow the chatbot to understand the similarity between different concepts and provide more relevant responses. This technology has been implemented professionally and is also demonstrated in a movie database demo. Would you like to know about the other components?"
+    
+    # Check for partial matches in the knowledge base
     for key, value in KNOWLEDGE_BASE.items():
         if key in message:
             return value
