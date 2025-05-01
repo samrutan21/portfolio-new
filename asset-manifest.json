@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/portfolio-new/static/css/main.49f0d190.css",
-    "main.js": "/portfolio-new/static/js/main.d1256e08.js",
+    "main.js": "/portfolio-new/static/js/main.d117fcf0.js",
     "static/js/453.998496b1.chunk.js": "/portfolio-new/static/js/453.998496b1.chunk.js",
     "static/media/revenue_comparison.png": "/portfolio-new/static/media/revenue_comparison.9758a5f5d31bf11441d3.png",
     "static/media/samrutan-headshot-1.jpg": "/portfolio-new/static/media/samrutan-headshot-1.246db97cc3f2745d988a.jpg",
     "index.html": "/portfolio-new/index.html",
     "main.49f0d190.css.map": "/portfolio-new/static/css/main.49f0d190.css.map",
-    "main.d1256e08.js.map": "/portfolio-new/static/js/main.d1256e08.js.map",
+    "main.d117fcf0.js.map": "/portfolio-new/static/js/main.d117fcf0.js.map",
     "453.998496b1.chunk.js.map": "/portfolio-new/static/js/453.998496b1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.49f0d190.css",
-    "static/js/main.d1256e08.js"
+    "static/js/main.d117fcf0.js"
   ]
 }
