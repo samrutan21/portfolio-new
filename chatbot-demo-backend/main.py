@@ -20,24 +20,27 @@ class Message(BaseModel):
 
 # Knowledge base for the chatbot
 KNOWLEDGE_BASE = {
-    "what are you": "I'm a demo chatbot created by Sam Rutan to showcase his experience with LLM chatbots. I can tell you about his work with AI, graph databases, and vector embeddings.",
-    "who are you": "I'm a demo chatbot created by Sam Rutan to showcase his experience with LLM chatbots. I can tell you about his work with AI, graph databases, and vector embeddings.",
-    "tell me about yourself": "I'm a demo version of a more sophisticated chatbot that Sam Rutan built. The full version uses Llama 3.2, Neo4j graph database, and vector embeddings to provide intelligent responses about movies.",
-    "what can you do": "I can explain Sam's experience with building LLM chatbots. The full version of this chatbot uses advanced technologies like graph databases and vector embeddings to provide intelligent responses about movies.",
-    "explain your architecture": "The full version of this chatbot uses a sophisticated architecture with Llama 3.2 for language processing, Neo4j for storing and querying movie data in a graph structure, and vector embeddings for semantic search. This demo version is simplified to showcase the concept.",
-    "what technologies do you use": "The full version uses Llama 3.2 for language processing, Neo4j for graph database storage, and vector embeddings for semantic search. This demo version is a simplified showcase of the concept.",
-    "tell me about the full version": "The full version of this chatbot uses Llama 3.2 for natural language processing, Neo4j graph database for storing and querying movie data, and vector embeddings for semantic search. It can answer complex questions about movies, their relationships, and provide recommendations.",
-    "what is a graph database": "A graph database like Neo4j stores data in nodes and relationships, making it perfect for representing complex connections between movies, actors, directors, and other entities. It allows for efficient querying of these relationships.",
-    "what are vector embeddings": "Vector embeddings are numerical representations of text that capture semantic meaning. They allow the chatbot to understand the similarity between different concepts and provide more relevant responses.",
-    "how does the full version work": "The full version combines Llama 3.2 for understanding natural language, Neo4j for storing and querying movie data in a graph structure, and vector embeddings for semantic search. This creates a powerful system for answering complex questions about movies."
+    "what are you": "I'm a demo chatbot created by Sam Rutan to showcase his experience with LLM chatbots. I can tell you about his work with AI, graph databases, and vector embeddings. Would you like to know about the full version of this chatbot?",
+    "who are you": "I'm a demo chatbot created by Sam Rutan to showcase his experience with LLM chatbots. I can tell you about his work with AI, graph databases, and vector embeddings. Would you like to know about the full version of this chatbot?",
+    "tell me about yourself": "I'm a demo version of a more sophisticated chatbot that Sam Rutan built. The full version uses Llama 3.2, Neo4j graph database, and vector embeddings to provide intelligent responses about movies. Would you like to learn about the technologies used in the full version?",
+    "what can you do": "I can explain Sam's experience with building LLM chatbots. The full version of this chatbot uses advanced technologies like graph databases and vector embeddings to provide intelligent responses about movies. Would you like to know about the financial firm project where these technologies were implemented?",
+    "explain your architecture": "The full version of this chatbot uses a sophisticated architecture with Llama 3.2 for language processing, Neo4j for storing and querying movie data in a graph structure, and vector embeddings for semantic search. This demo version is simplified to showcase the concept. Would you like to know how these technologies work together?",
+    "what technologies do you use": "The full version uses Llama 3.2 for language processing, Neo4j for graph database storage, and vector embeddings for semantic search. This demo version is a simplified showcase of the concept. Would you like to know about the financial firm project where these technologies were implemented?",
+    "tell me about the full version": "The full version of this chatbot uses Llama 3.2 for natural language processing, Neo4j graph database for storing and querying movie data, and vector embeddings for semantic search. It can answer complex questions about movies, their relationships, and provide recommendations. Would you like to see the movie database demo on GitHub?",
+    "what is a graph database": "A graph database like Neo4j stores data in nodes and relationships, making it perfect for representing complex connections between movies, actors, directors, and other entities. It allows for efficient querying of these relationships. Would you like to know how this was used in the financial firm project?",
+    "what are vector embeddings": "Vector embeddings are numerical representations of text that capture semantic meaning. They allow the chatbot to understand the similarity between different concepts and provide more relevant responses. Would you like to know how these were implemented in the financial firm project?",
+    "how does the full version work": "The full version combines Llama 3.2 for understanding natural language, Neo4j for storing and querying movie data in a graph structure, and vector embeddings for semantic search. This creates a powerful system for answering complex questions about movies. Would you like to know about the financial firm implementation?",
+    "tell me about the financial firm project": "Sam built a sophisticated LLM chatbot for a large, highly successful financial firm. The system used Llama 3.2, Neo4j graph database, and vector embeddings to provide intelligent responses and automate complex financial queries. Would you like to know more about the specific technologies used in this project?",
+    "where can i see more demos": "You can check out Sam's GitHub repository at https://github.com/samrutan21/llm-bot-python to see the movie database retrieval demo. Would you like to know more about the financial firm project?",
+    "what's on your github": "Sam's GitHub repository (https://github.com/samrutan21/llm-bot-python) contains the movie database retrieval demo, showcasing the full implementation of the LLM chatbot with graph database and vector embeddings. Would you like to know about the financial firm project where these technologies were implemented?"
 }
 
 # Default responses for unknown queries
 DEFAULT_RESPONSES = [
-    "I'm a demo chatbot that can tell you about Sam's experience with LLM chatbots. Try asking 'What are you?' or 'Tell me about yourself'.",
-    "I can explain how the full version of this chatbot uses graph databases and vector embeddings. Try asking 'What technologies do you use?'",
-    "The full version of this chatbot uses advanced AI technologies. Ask me about its architecture or capabilities.",
-    "I'm here to showcase Sam's experience with building sophisticated chatbots. Try asking about the technologies used or how it works."
+    "I'm a demo chatbot that can tell you about Sam's experience with LLM chatbots. Try asking 'What are you?' or 'Tell me about yourself'. Would you like to know about the financial firm project?",
+    "I can explain how the full version of this chatbot uses graph databases and vector embeddings. Try asking 'What technologies do you use?' or 'Tell me about the financial firm project'.",
+    "The full version of this chatbot uses advanced AI technologies. Ask me about its architecture, capabilities, or the financial firm project.",
+    "I'm here to showcase Sam's experience with building sophisticated chatbots. Try asking about the technologies used, how it works, or the financial firm implementation."
 ]
 
 def get_response(message: str) -> str:
