@@ -143,9 +143,9 @@ const Portfolio = () => {
               margin: '0 auto',
               paddingTop: '120px',
               display: 'flex',
-              flexDirection: 'row',
+              flexDirection: 'column',
               alignItems: 'center',
-              gap: '60px'
+              gap: '40px'
             }}>
               <img 
                 src={fullMoonImage} 
@@ -157,7 +157,12 @@ const Portfolio = () => {
                 }}
               />
               
-              <div>
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                textAlign: 'center'
+              }}>
                 <p style={{
                   color: '#888',
                   textTransform: 'uppercase',
