@@ -3,6 +3,7 @@ import './App.css';
 import headshot from './images/samrutan-headshot-1.jpg';
 import salesGraph from '/Users/samrutan/portfolio-new/src/images/revenue_comparison.png';
 import llmBotImage from './images/agentforce-marquee-llms.png';
+import fullMoonImage from './images/Full_Moon_Homepage_Pic.png';
 import ChatInterface from './components/ChatInterface';
 
 // Collapsible Category Component
@@ -142,55 +143,67 @@ const Portfolio = () => {
               margin: '0 auto',
               paddingTop: '120px',
               display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'flex-start'
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: '60px'
             }}>
-              
-              <p style={{
-                color: '#888',
-                textTransform: 'uppercase',
-                letterSpacing: '2px',
-                marginBottom: '16px'
-              }}>Multi-Disciplinary Problem Solver</p>
-              
-              <h1 style={{
-                fontSize: '48px',
-                fontWeight: 'bold',
-                lineHeight: '1.2',
-                marginBottom: '16px'
-              }}>
-                DEFINE<br />
-                <span className="text-stroke">THE</span><br />
-                FUTURE
-              </h1>
-              
-              <p style={{
-                maxWidth: '500px',
-                color: '#999',
-                fontSize: '18px',
-                lineHeight: '1.6',
-                marginBottom: '32px'
-              }}>
-                A creative professional with a diverse skill set, uncovering new solutions to old problems.
-              </p>
-              
-              <button 
+              <img 
+                src={fullMoonImage} 
+                alt="Full Moon" 
                 style={{
-                  background: 'none',
-                  border: '1px solid white',
-                  color: 'white',
-                  padding: '12px 32px',
-                  fontSize: '14px',
-                  letterSpacing: '2px',
-                  textTransform: 'uppercase',
-                  cursor: 'pointer',
-                  position: 'relative',
-                  overflow: 'hidden'
+                  width: '400px',
+                  height: 'auto',
+                  objectFit: 'cover'
                 }}
-                onClick={() => handleNavClick('work')}
-              >
-                View Work
-              </button>
+              />
+              
+              <div>
+                <p style={{
+                  color: '#888',
+                  textTransform: 'uppercase',
+                  letterSpacing: '2px',
+                  marginBottom: '16px'
+                }}>Multi-Disciplinary Problem Solver</p>
+                
+                <h1 style={{
+                  fontSize: '48px',
+                  fontWeight: 'bold',
+                  lineHeight: '1.2',
+                  marginBottom: '16px'
+                }}>
+                  DEFINE<br />
+                  <span className="text-stroke">THE</span><br />
+                  FUTURE
+                </h1>
+                
+                <p style={{
+                  maxWidth: '500px',
+                  color: '#999',
+                  fontSize: '18px',
+                  lineHeight: '1.6',
+                  marginBottom: '32px'
+                }}>
+                  A creative professional with a diverse skill set, uncovering new solutions to old problems.
+                </p>
+                
+                <button 
+                  style={{
+                    background: 'none',
+                    border: '1px solid white',
+                    color: 'white',
+                    padding: '12px 32px',
+                    fontSize: '14px',
+                    letterSpacing: '2px',
+                    textTransform: 'uppercase',
+                    cursor: 'pointer',
+                    position: 'relative',
+                    overflow: 'hidden'
+                  }}
+                  onClick={() => handleNavClick('work')}
+                >
+                  View Work
+                </button>
+              </div>
             </div>
           </section>
         )}
