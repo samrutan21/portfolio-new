@@ -1,18 +1,19 @@
 {
   "files": {
     "main.css": "/portfolio-new/static/css/main.49f0d190.css",
-    "main.js": "/portfolio-new/static/js/main.3f39a610.js",
+    "main.js": "/portfolio-new/static/js/main.7ad887fc.js",
     "static/js/453.998496b1.chunk.js": "/portfolio-new/static/js/453.998496b1.chunk.js",
+    "static/media/Full_Moon_Homepage_Pic.png": "/portfolio-new/static/media/Full_Moon_Homepage_Pic.dc346243b35d21943be2.png",
     "static/media/revenue_comparison.png": "/portfolio-new/static/media/revenue_comparison.9758a5f5d31bf11441d3.png",
     "static/media/samrutan-headshot-1.jpg": "/portfolio-new/static/media/samrutan-headshot-1.246db97cc3f2745d988a.jpg",
     "static/media/agentforce-marquee-llms.png": "/portfolio-new/static/media/agentforce-marquee-llms.6db5631cf19744eaf648.png",
     "index.html": "/portfolio-new/index.html",
     "main.49f0d190.css.map": "/portfolio-new/static/css/main.49f0d190.css.map",
-    "main.3f39a610.js.map": "/portfolio-new/static/js/main.3f39a610.js.map",
+    "main.7ad887fc.js.map": "/portfolio-new/static/js/main.7ad887fc.js.map",
     "453.998496b1.chunk.js.map": "/portfolio-new/static/js/453.998496b1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.49f0d190.css",
-    "static/js/main.3f39a610.js"
+    "static/js/main.7ad887fc.js"
   ]
 }
