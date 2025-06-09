@@ -5,6 +5,7 @@ import salesGraph from '/Users/samrutan/portfolio-new/src/images/revenue_compari
 import llmBotImage from './images/agentforce-marquee-llms.png';
 import fullMoonImage from './images/Full_Moon_Homepage_Pic.png';
 import visualizerImage from './images/visualizer_image.png';
+import afterEffectsImage from './images/after_effects_llm_assistant.png';
 import ChatInterface from './components/ChatInterface';
 
 // Collapsible Category Component
@@ -461,7 +462,82 @@ const Portfolio = () => {
                       gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
                       gap: '32px'
                     }}>
-                      {/* Project 1 - LLM ChatBot */}
+                      {/* Project 1 - After Effects LLM Assistant */}
+                      <div style={{
+                        backgroundColor: '#111',
+                        borderRadius: '8px',
+                        overflow: 'hidden'
+                      }}>
+                        <div style={{ aspectRatio: '16/9' }}>
+                          <img 
+                            src={afterEffectsImage}
+                            alt="After Effects LLM Assistant Extension" 
+                            style={{
+                              width: '100%',
+                              height: '100%',
+                              objectFit: 'cover'
+                            }}
+                          />
+                        </div>
+                        <div style={{ padding: '24px' }}>
+                          <h3 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '12px' }}>After Effects LLM Assistant</h3>
+                          <p style={{ color: '#999', marginBottom: '16px', lineHeight: '1.6' }}>
+                            A revolutionary Adobe After Effects extension that seamlessly integrates cutting-edge AI assistance directly into your creative workflow. Connect to OpenAI's GPT models, Anthropic's Claude, Google's Gemini, or your own locally-hosted LLMs to transform how you approach motion graphics and visual effects. Instead of spending countless hours researching techniques, troubleshooting expressions, or hunting for tutorials, creators can now focus entirely on bringing their artistic visions to life. The extension provides intelligent, context-aware suggestions for complex animations, generates custom expressions on demand, offers real-time problem-solving guidance, and streamlines the creative process from concept to completion. This tool represents the future of creative software integration—where artificial intelligence amplifies human creativity rather than replacing it.
+                          </p>
+                          <div style={{ display: 'flex', gap: '8px', marginBottom: '20px', flexWrap: 'wrap' }}>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px', 
+                              borderRadius: '4px'
+                            }}>
+                              Adobe CEP
+                            </span>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px',
+                              borderRadius: '4px'
+                            }}>
+                              JavaScript
+                            </span>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px',
+                              borderRadius: '4px'
+                            }}>
+                              OpenAI API
+                            </span>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px',
+                              borderRadius: '4px'
+                            }}>
+                              Claude API
+                            </span>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px',
+                              borderRadius: '4px'
+                            }}>
+                              Gemini API
+                            </span>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px',
+                              borderRadius: '4px'
+                            }}>
+                              Local LLMs
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Project 2 - LLM Knowledge Search ChatBot */}
                       <div style={{
                         backgroundColor: '#111',
                         borderRadius: '8px',
@@ -479,7 +555,7 @@ const Portfolio = () => {
                           />
                         </div>
                         <div style={{ padding: '24px' }}>
-                          <h3 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '12px' }}>LLM ChatBot</h3>
+                          <h3 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '12px' }}>LLM Knowledge Search ChatBot</h3>
                           <p style={{ color: '#999', marginBottom: '16px', lineHeight: '1.6' }}>
                             A Python-based chatbot leveraging Large Language Models to provide intelligent responses and automate tasks. Features include natural language processing, context awareness, and a graph database implementation for efficient knowledge representation and retrieval.
                           </p>
@@ -535,7 +611,7 @@ const Portfolio = () => {
                         </div>
                       </div>
 
-                      {/* Project 2 - Music Visualizer */}
+                      {/* Project 3 - Music Visualizer */}
                       <div style={{
                         backgroundColor: '#111',
                         borderRadius: '8px',
