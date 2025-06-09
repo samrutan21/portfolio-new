@@ -4,6 +4,7 @@ import headshot from './images/samrutan-headshot-1.jpg';
 import salesGraph from '/Users/samrutan/portfolio-new/src/images/revenue_comparison.png';
 import llmBotImage from './images/agentforce-marquee-llms.png';
 import fullMoonImage from './images/Full_Moon_Homepage_Pic.png';
+import visualizerImage from './images/visualizer_image.png';
 import ChatInterface from './components/ChatInterface';
 
 // Collapsible Category Component
@@ -460,7 +461,7 @@ const Portfolio = () => {
                       gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
                       gap: '32px'
                     }}>
-                      {/* Project 1 */}
+                      {/* Project 1 - LLM ChatBot */}
                       <div style={{
                         backgroundColor: '#111',
                         borderRadius: '8px',
@@ -514,6 +515,82 @@ const Portfolio = () => {
                               borderRadius: '4px'
                             }}>
                               NLP
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Project 2 - Music Visualizer */}
+                      <div style={{
+                        backgroundColor: '#111',
+                        borderRadius: '8px',
+                        overflow: 'hidden'
+                      }}>
+                        <div style={{ aspectRatio: '16/9' }}>
+                          <img 
+                            src={visualizerImage}
+                            alt="Music Visualizer Interface" 
+                            style={{
+                              width: '100%',
+                              height: '100%',
+                              objectFit: 'cover'
+                            }}
+                          />
+                        </div>
+                        <div style={{ padding: '24px' }}>
+                          <h3 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '12px' }}>
+                            <a 
+                              href="https://musicvisualizerv2-i4tgjoyvpir9iiugokss8c.streamlit.app/" 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              style={{ color: 'white', textDecoration: 'none' }}
+                            >
+                              Music Visualizer ↗
+                            </a>
+                          </h3>
+                          <p style={{ color: '#999', marginBottom: '16px', lineHeight: '1.6' }}>
+                            Real-time audio-reactive animation tool that transforms abstract art into dynamic visuals synchronized with music. Built with Python, Streamlit, and deployed on Streamlit Cloud, featuring advanced audio analysis using librosa for frequency spectrum analysis and beat detection. Implements computer vision effects with OpenCV and NumPy for image manipulation, including pulsing, color shifts, wave distortions, and kaleidoscopic transformations. Features an intuitive web interface with section selection, intensity controls, dual-quality rendering modes, and FFmpeg integration for professional video export. Demonstrates expertise in signal processing, real-time data visualization, computer vision, and creative tool development.
+                          </p>
+                          <div style={{ display: 'flex', gap: '8px', marginBottom: '20px', flexWrap: 'wrap' }}>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px', 
+                              borderRadius: '4px'
+                            }}>
+                              Python
+                            </span>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px',
+                              borderRadius: '4px'
+                            }}>
+                              Streamlit
+                            </span>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px',
+                              borderRadius: '4px'
+                            }}>
+                              OpenCV
+                            </span>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px',
+                              borderRadius: '4px'
+                            }}>
+                              Audio Analysis
+                            </span>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px',
+                              borderRadius: '4px'
+                            }}>
+                              FFmpeg
                             </span>
                           </div>
                         </div>
@@ -704,7 +781,7 @@ const Portfolio = () => {
               }}>
                 <div>
                   <p style={{ fontSize: '18px', lineHeight: '1.6', color: '#ccc', marginBottom: '24px' }}>
-                    I'm Sam Rutan, a versatile creative professional based in Los Angeles. My background spans multiple disciplines including Film Production, Software Development, and Business Growth, allowing me to bridge the gap between creative vision and technical execution.
+                    I'm Sam Rutan, a versatile creative professional based in New York City. My background spans multiple disciplines including Film Production, Software Development, and Business Growth, allowing me to bridge the gap between creative vision and technical execution.
                   </p>
                   <p style={{ fontSize: '18px', lineHeight: '1.6', color: '#ccc', marginBottom: '24px' }}>
                     My approach combines strategic thinking with innovative problem-solving. I've worked with brands across various industries to create compelling experiences that connect with audiences and achieve business objectives.
