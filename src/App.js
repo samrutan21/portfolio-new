@@ -517,6 +517,21 @@ const Portfolio = () => {
                               NLP
                             </span>
                           </div>
+                          
+                          {/* Interactive Demo */}
+                          <div style={{ marginTop: '20px' }}>
+                            <h4 style={{ fontSize: '16px', fontWeight: 'bold', marginBottom: '12px', color: '#ccc' }}>
+                              Try it out:
+                            </h4>
+                            <div style={{
+                              backgroundColor: '#0a0a0a',
+                              borderRadius: '8px',
+                              overflow: 'hidden',
+                              border: '1px solid #333'
+                            }}>
+                              <ChatInterface />
+                            </div>
+                          </div>
                         </div>
                       </div>
 
@@ -594,16 +609,6 @@ const Portfolio = () => {
                             </span>
                           </div>
                         </div>
-                      </div>
-                      
-                      {/* Chat Interface */}
-                      <div style={{
-                        backgroundColor: '#111',
-                        borderRadius: '8px',
-                        overflow: 'hidden',
-                        maxWidth: '350px'
-                      }}>
-                        <ChatInterface />
                       </div>
                     </div>
                   </div>
@@ -901,7 +906,7 @@ const Portfolio = () => {
                 
                 <div style={{ marginBottom: '32px' }}>
                   <p style={{ color: '#999', fontSize: '14px', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '8px' }}>Based in</p>
-                  <p style={{ fontSize: '20px', fontWeight: '500' }}>Los Angeles, CA</p>
+                  <p style={{ fontSize: '20px', fontWeight: '500' }}>New York City</p>
                 </div>
                 
                 <div style={{ marginTop: '60px' }}>
