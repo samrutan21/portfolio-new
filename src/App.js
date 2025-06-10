@@ -6,6 +6,7 @@ import llmBotImage from './images/agentforce-marquee-llms.png';
 import fullMoonImage from './images/Full_Moon_Homepage_Pic.png';
 import visualizerImage from './images/visualizer_image.png';
 import afterEffectsImage from './images/after_effects_llm_assistant.png';
+import pianoTrainerImage from './images/piano_trainer.png';
 import ChatInterface from './components/ChatInterface';
 
 // Collapsible Category Component
@@ -611,7 +612,122 @@ const Portfolio = () => {
                         </div>
                       </div>
 
-                      {/* Project 3 - Music Visualizer */}
+                      {/* Project 3 - Piano Trainer */}
+                      <div style={{
+                        backgroundColor: '#111',
+                        borderRadius: '8px',
+                        overflow: 'hidden'
+                      }}>
+                        <div style={{ aspectRatio: '16/9' }}>
+                          <a 
+                            href="https://samrutan21.github.io/PianoTrainer/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            style={{ display: 'block', width: '100%', height: '100%' }}
+                          >
+                            <img 
+                              src={pianoTrainerImage}
+                              alt="Piano Trainer Web Application" 
+                              style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                cursor: 'pointer',
+                                transition: 'transform 0.3s ease'
+                              }}
+                              onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
+                              onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+                            />
+                          </a>
+                        </div>
+                        <div style={{ padding: '24px' }}>
+                          <h3 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '12px' }}>
+                            <a 
+                              href="https://samrutan21.github.io/PianoTrainer/" 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              style={{ color: 'white', textDecoration: 'none' }}
+                            >
+                              Virtual Piano Trainer
+                            </a>
+                          </h3>
+                          <p style={{ color: '#999', marginBottom: '16px', lineHeight: '1.6' }}>
+                            An interactive web application designed to accelerate piano learning through gamified practice sessions. Features rapid-fire chord and scale recognition exercises where users listen to musical patterns and play them back for real-time feedback and scoring. The innovative Song Builder mode allows musicians to capture and arrange chord progressions they discover during practice, transforming learning into creative composition. Built with user experience as the priority, this tool demonstrates how technology can make musical education more engaging and accessible, supporting my mission to enhance creativity through innovative software solutions.
+                          </p>
+                          <div style={{ display: 'flex', gap: '8px', marginBottom: '20px', flexWrap: 'wrap' }}>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px', 
+                              borderRadius: '4px'
+                            }}>
+                              JavaScript
+                            </span>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px',
+                              borderRadius: '4px'
+                            }}>
+                              Web Audio API
+                            </span>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px',
+                              borderRadius: '4px'
+                            }}>
+                              MIDI Integration
+                            </span>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px',
+                              borderRadius: '4px'
+                            }}>
+                              Music Theory
+                            </span>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px',
+                              borderRadius: '4px'
+                            }}>
+                              UX Design
+                            </span>
+                          </div>
+                          <a 
+                            href="https://samrutan21.github.io/PianoTrainer/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            style={{
+                              display: 'inline-block',
+                              background: 'none',
+                              border: '1px solid rgba(255,255,255,0.3)',
+                              color: 'white',
+                              padding: '8px 16px',
+                              fontSize: '12px',
+                              letterSpacing: '1px',
+                              textTransform: 'uppercase',
+                              textDecoration: 'none',
+                              borderRadius: '4px',
+                              transition: 'all 0.3s ease',
+                            }}
+                            onMouseOver={(e) => {
+                              e.target.style.borderColor = 'white';
+                              e.target.style.backgroundColor = 'rgba(255,255,255,0.1)';
+                            }}
+                            onMouseOut={(e) => {
+                              e.target.style.borderColor = 'rgba(255,255,255,0.3)';
+                              e.target.style.backgroundColor = 'transparent';
+                            }}
+                          >
+                            Try Live Demo →
+                          </a>
+                        </div>
+                      </div>
+
+                      {/* Project 4 - Music Visualizer */}
                       <div style={{
                         backgroundColor: '#111',
                         borderRadius: '8px',
