@@ -1,0 +1,5 @@
+06082025
+
+Make better logos for the projects
+Add the chord website (Make it live somehow)
+How can I have the chatbot backend running all the time? 
