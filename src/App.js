@@ -59,6 +59,16 @@ const CollapsibleCategory = ({ title, content }) => {
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  // Contact form state
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    projectType: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('');
 
   const sections = ['home', 'work', 'about', 'contact'];
 
@@ -66,6 +76,50 @@ const Portfolio = () => {
   const handleNavClick = (section) => {
     setActiveSection(section);
     setIsMenuOpen(false);
+  };
+
+  // Handle form input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('');
+
+    try {
+      const response = await fetch('https://formspree.io/f/xnnvpobj', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          projectType: formData.projectType,
+          message: formData.message,
+          _replyto: formData.email
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', projectType: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -1105,39 +1159,49 @@ const Portfolio = () => {
                   <p style={{ fontSize: '20px', fontWeight: '500' }}>New York City</p>
                 </div>
                 
-                <div style={{ marginTop: '60px' }}>
-                  <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '24px' }}>SOCIALS</h3>
-                  <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    {['LinkedIn', 'Twitter', 'Instagram', 'Dribbble'].map(social => (
-                      <a 
-                        key={social} 
-                        href="#" 
-                        style={{ 
-                          display: 'flex', 
-                          justifyContent: 'space-between', 
-                          alignItems: 'center',
-                          padding: '12px 0',
-                          borderBottom: '1px solid #333',
-                          color: 'white',
-                          textDecoration: 'none'
-                        }}
-                      >
-                        <span style={{ fontSize: '18px' }}>{social}</span>
-                        <span>→</span>
-                      </a>
-                    ))}
-                  </div>
-                </div>
+
               </div>
               
               {/* Contact Form */}
               <div>
                 <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '32px' }}>GET IN TOUCH</h3>
-                <form>
+                
+                {/* Success/Error Messages */}
+                {submitStatus === 'success' && (
+                  <div style={{
+                    backgroundColor: 'rgba(0, 255, 0, 0.1)',
+                    border: '1px solid rgba(0, 255, 0, 0.3)',
+                    borderRadius: '8px',
+                    padding: '16px',
+                    marginBottom: '24px',
+                    color: '#00ff00'
+                  }}>
+                    Thanks for your message! I'll get back to you soon.
+                  </div>
+                )}
+                
+                {submitStatus === 'error' && (
+                  <div style={{
+                    backgroundColor: 'rgba(255, 0, 0, 0.1)',
+                    border: '1px solid rgba(255, 0, 0, 0.3)',
+                    borderRadius: '8px',
+                    padding: '16px',
+                    marginBottom: '24px',
+                    color: '#ff0000'
+                  }}>
+                    Something went wrong. Please try again or email me directly.
+                  </div>
+                )}
+                
+                <form onSubmit={handleSubmit}>
                   <div style={{ marginBottom: '24px' }}>
                     <input 
                       type="text" 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
                       placeholder="Your Name" 
+                      required
                       style={{
                         width: '100%',
                         padding: '16px 0',
@@ -1154,7 +1218,11 @@ const Portfolio = () => {
                   <div style={{ marginBottom: '24px' }}>
                     <input 
                       type="email" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       placeholder="Email Address" 
+                      required
                       style={{
                         width: '100%',
                         padding: '16px 0',
@@ -1170,19 +1238,23 @@ const Portfolio = () => {
                   
                   <div style={{ marginBottom: '24px' }}>
                     <select
+                      name="projectType"
+                      value={formData.projectType}
+                      onChange={handleInputChange}
+                      required
                       style={{
                         width: '100%',
                         padding: '16px 0',
                         background: 'transparent',
                         border: 'none',
                         borderBottom: '1px solid #333',
-                        color: '#999',
+                        color: formData.projectType ? 'white' : '#999',
                         fontSize: '16px',
                         outline: 'none',
                         appearance: 'none'
                       }}
                     >
-                      <option value="" disabled selected style={{ background: 'black' }}>Project Type</option>
+                      <option value="" disabled style={{ background: 'black' }}>Project Type</option>
                       <option value="design" style={{ background: 'black' }}>Design Project</option>
                       <option value="development" style={{ background: 'black' }}>Development Project</option>
                       <option value="consultation" style={{ background: 'black' }}>Consultation</option>
@@ -1192,8 +1264,12 @@ const Portfolio = () => {
                   
                   <div style={{ marginBottom: '32px' }}>
                     <textarea 
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
                       placeholder="Your Message" 
                       rows="4"
+                      required
                       style={{
                         width: '100%',
                         padding: '16px 0',
@@ -1205,25 +1281,27 @@ const Portfolio = () => {
                         outline: 'none',
                         resize: 'vertical'
                       }}
-                    ></textarea>
+                    />
                   </div>
                   
                   <button 
                     type="submit"
+                    disabled={isSubmitting}
                     style={{
                       background: 'none',
                       border: '1px solid white',
-                      color: 'white',
+                      color: isSubmitting ? '#666' : 'white',
                       padding: '12px 32px',
                       fontSize: '14px',
                       letterSpacing: '2px',
                       textTransform: 'uppercase',
-                      cursor: 'pointer',
+                      cursor: isSubmitting ? 'not-allowed' : 'pointer',
                       position: 'relative',
-                      overflow: 'hidden'
+                      overflow: 'hidden',
+                      opacity: isSubmitting ? 0.6 : 1
                     }}
                   >
-                    Submit
+                    {isSubmitting ? 'Sending...' : 'Submit'}
                   </button>
                 </form>
               </div>
