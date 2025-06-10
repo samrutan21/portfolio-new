@@ -511,11 +511,12 @@ const Portfolio = () => {
                 <CollapsibleCategory 
                 title="SOFTWARE DEVELOPMENT" 
                 content={
-                  <div style={{ padding: '24px 0' }}>
+                  <div style={{ padding: '40px 0 24px 0' }}>
                     <div style={{ 
                       display: 'grid',
                       gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
-                      gap: '32px'
+                      gap: '32px',
+                      marginTop: '24px'
                     }}>
                       {/* Project 1 - After Effects LLM Assistant */}
                       <div style={{
