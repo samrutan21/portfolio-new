@@ -3,3 +3,18 @@
 Make better logos for the projects
 Add the chord website (Make it live somehow)
 How can I have the chatbot backend running all the time? 
+
+
+060925 
+
+Improved project logos 
+
+Added piano website using github pages (backend not available yet)
+Removed "Socials"
+Email form submission now active
+
+
+Should I have backend running all the time for portfolio and piano? 
+Add more language about LLMs/Vector embeddings/RAG for the chatbot
+Update the music visualizer to have a live demo button similar to piano
+
