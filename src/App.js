@@ -530,8 +530,8 @@ const Portfolio = () => {
                             style={{
                               width: '100%',
                               height: '100%',
-                              objectFit: 'cover',
-                              objectPosition: 'center top'
+                              objectFit: 'contain',
+                              backgroundColor: '#0a0a0a'
                             }}
                           />
                         </div>
@@ -606,8 +606,8 @@ const Portfolio = () => {
                             style={{
                               width: '100%',
                               height: '100%',
-                              objectFit: 'cover',
-                              objectPosition: 'center top'
+                              objectFit: 'contain',
+                              backgroundColor: '#0a0a0a'
                             }}
                           />
                         </div>
@@ -687,8 +687,8 @@ const Portfolio = () => {
                               style={{
                                 width: '100%',
                                 height: '100%',
-                                objectFit: 'cover',
-                                objectPosition: 'center top',
+                                objectFit: 'contain',
+                                backgroundColor: '#0a0a0a',
                                 cursor: 'pointer',
                                 transition: 'transform 0.3s ease'
                               }}
@@ -797,8 +797,8 @@ const Portfolio = () => {
                             style={{
                               width: '100%',
                               height: '100%',
-                              objectFit: 'cover',
-                              objectPosition: 'center top'
+                              objectFit: 'contain',
+                              backgroundColor: '#0a0a0a'
                             }}
                           />
                         </div>
