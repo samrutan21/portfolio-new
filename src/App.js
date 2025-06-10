@@ -552,7 +552,8 @@ const Portfolio = () => {
                             style={{
                               width: '100%',
                               height: '100%',
-                              objectFit: 'cover'
+                              objectFit: 'cover',
+                              objectPosition: 'center top'
                             }}
                           />
                         </div>
@@ -742,7 +743,8 @@ const Portfolio = () => {
                             style={{
                               width: '100%',
                               height: '100%',
-                              objectFit: 'cover'
+                              objectFit: 'cover',
+                              objectPosition: 'center top'
                             }}
                           />
                         </div>
