@@ -45,7 +45,7 @@ const CollapsibleCategory = ({ title, content }) => {
       
       <div 
         style={{
-          maxHeight: isOpen ? '2000px' : '0',
+          maxHeight: isOpen ? '4000px' : '0',
           overflow: 'hidden',
           transition: 'max-height 0.5s ease',
         }}
