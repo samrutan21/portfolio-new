@@ -615,9 +615,9 @@ const Portfolio = () => {
                         <div style={{ padding: '24px' }}>
                           <h3 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '12px' }}>LLM Knowledge Search ChatBot</h3>
                           <p style={{ color: '#999', marginBottom: '16px', lineHeight: '1.6' }}>
-                            A Python-based chatbot leveraging Large Language Models to provide intelligent responses and automate tasks. Features include natural language processing, context awareness, and a graph database implementation for efficient knowledge representation and retrieval.
+                            A sophisticated Python-based chatbot leveraging local open-source Large Language Models (Llama 3.2) to build secure internal knowledge search systems. The architecture combines Neo4j graph database for complex relationship modeling with advanced vector embeddings on text data, enabling semantic search capabilities that understand context and meaning rather than just keyword matching. This RAG (Retrieval-Augmented Generation) implementation transforms unstructured documents into searchable vector representations stored alongside graph relationships, allowing for intelligent query processing that considers both semantic similarity and relational context. By utilizing local LLMs, the system ensures complete data privacy and security for enterprise environments while delivering contextually aware responses through sophisticated natural language processing and knowledge retrieval mechanisms.
                           </p>
-                          <div style={{ display: 'flex', gap: '8px', marginBottom: '20px' }}>
+                          <div style={{ display: 'flex', gap: '8px', marginBottom: '20px', flexWrap: 'wrap' }}>
                             <span style={{ 
                               backgroundColor: 'rgba(255,255,255,0.1)', 
                               padding: '4px 8px', 
@@ -632,7 +632,7 @@ const Portfolio = () => {
                               fontSize: '12px',
                               borderRadius: '4px'
                             }}>
-                              LLM
+                              Llama 3.2
                             </span>
                             <span style={{ 
                               backgroundColor: 'rgba(255,255,255,0.1)', 
@@ -640,7 +640,7 @@ const Portfolio = () => {
                               fontSize: '12px',
                               borderRadius: '4px'
                             }}>
-                              Graph DB
+                              Neo4j
                             </span>
                             <span style={{ 
                               backgroundColor: 'rgba(255,255,255,0.1)', 
@@ -648,7 +648,31 @@ const Portfolio = () => {
                               fontSize: '12px',
                               borderRadius: '4px'
                             }}>
-                              NLP
+                              Vector Embeddings
+                            </span>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px',
+                              borderRadius: '4px'
+                            }}>
+                              RAG
+                            </span>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px',
+                              borderRadius: '4px'
+                            }}>
+                              Semantic Search
+                            </span>
+                            <span style={{ 
+                              backgroundColor: 'rgba(255,255,255,0.1)', 
+                              padding: '4px 8px', 
+                              fontSize: '12px',
+                              borderRadius: '4px'
+                            }}>
+                              Local LLMs
                             </span>
                           </div>
                           
@@ -805,14 +829,7 @@ const Portfolio = () => {
                         </div>
                         <div style={{ padding: '24px' }}>
                           <h3 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '12px' }}>
-                            <a 
-                              href="https://musicvisualizerv2-i4tgjoyvpir9iiugokss8c.streamlit.app/" 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              style={{ color: 'white', textDecoration: 'none' }}
-                            >
-                              Music Visualizer ↗
-                            </a>
+                            Music Visualizer
                           </h3>
                           <p style={{ color: '#999', marginBottom: '16px', lineHeight: '1.6' }}>
                             Real-time audio-reactive animation tool that transforms abstract art into dynamic visuals synchronized with music. Built with Python, Streamlit, and deployed on Streamlit Cloud, featuring advanced audio analysis using librosa for frequency spectrum analysis and beat detection. Implements computer vision effects with OpenCV and NumPy for image manipulation, including pulsing, color shifts, wave distortions, and kaleidoscopic transformations. Features an intuitive web interface with section selection, intensity controls, dual-quality rendering modes, and FFmpeg integration for professional video export. Demonstrates expertise in signal processing, real-time data visualization, computer vision, and creative tool development.
@@ -859,6 +876,34 @@ const Portfolio = () => {
                               FFmpeg
                             </span>
                           </div>
+                          <a 
+                            href="https://musicvisualizerv2-i4tgjoyvpir9iiugokss8c.streamlit.app/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            style={{
+                              display: 'inline-block',
+                              background: 'none',
+                              border: '1px solid rgba(255,255,255,0.3)',
+                              color: 'white',
+                              padding: '8px 16px',
+                              fontSize: '12px',
+                              letterSpacing: '1px',
+                              textTransform: 'uppercase',
+                              textDecoration: 'none',
+                              borderRadius: '4px',
+                              transition: 'all 0.3s ease',
+                            }}
+                            onMouseOver={(e) => {
+                              e.target.style.borderColor = 'white';
+                              e.target.style.backgroundColor = 'rgba(255,255,255,0.1)';
+                            }}
+                            onMouseOut={(e) => {
+                              e.target.style.borderColor = 'rgba(255,255,255,0.3)';
+                              e.target.style.backgroundColor = 'transparent';
+                            }}
+                          >
+                            Try Live Demo →
+                          </a>
                         </div>
                       </div>
                     </div>
