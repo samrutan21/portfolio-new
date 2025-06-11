@@ -27,7 +27,7 @@ const ChatInterface = () => {
     setIsLoading(true);
 
     try {
-      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+      const apiUrl = process.env.REACT_APP_API_URL || 'https://portfolio-chat-backend-6cnb.onrender.com';
       const response = await fetch(`${apiUrl}/chat`, {
         method: 'POST',
         headers: {
