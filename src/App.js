@@ -1114,8 +1114,8 @@ const Portfolio = () => {
                       <ul style={{ color: '#999', listStyle: 'none', padding: 0 }}>
                         <li style={{ marginBottom: '8px' }}>Frontend (React, JS)</li>
                         <li style={{ marginBottom: '8px' }}>Backend Architecture (Python, SQL)</li>
-                        <li style={{ marginBottom: '8px' }}>Responsive Design</li>
-                        <li style={{ marginBottom: '8px' }}>User Friendly Creativity</li>
+                        <li style={{ marginBottom: '8px' }}>Artificial Intelligence (LLMs, RAG)</li>
+                        <li style={{ marginBottom: '8px' }}>Responsive Design/User Friendly Creativity</li>
                       </ul>
                     </div>
                     <div>
