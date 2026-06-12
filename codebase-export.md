@@ -1,3 +1,457 @@
+# Codebase Export: portfolio-new
+
+_Generated on 2026-06-12 17:54:57 by export-codebase.sh_
+
+This file contains the complete text source of the project, bundled into a
+single document so Claude can understand it in one pass. Binary assets
+(images, fonts), lockfiles, and build output are excluded.
+
+## Project structure
+
+```
+.gitignore
+README.md
+chatbot-demo-backend/Dockerfile
+chatbot-demo-backend/Procfile
+chatbot-demo-backend/main.py
+chatbot-demo-backend/requirements.txt
+devlog.txt
+package.json
+public/favicon.ico
+public/index.html
+public/logo192.png
+public/logo512.png
+public/manifest.json
+public/robots.txt
+src/App.css
+src/App.js
+src/App.test.js
+src/components/ChatInterface.js
+src/images/Full_Moon_Homepage_Pic.png
+src/images/SamRutan_PianoAppTrainer.png
+src/images/after_effects_llm_assistant.png
+src/images/agentforce-marquee-llms.png
+src/images/piano_trainer.png
+src/images/revenue_comparison.png
+src/images/samrutan-headshot-1.jpg
+src/images/visualizer_image.png
+src/index.css
+src/index.js
+src/logo.svg
+src/reportWebVitals.js
+src/setupTests.js
+```
+
+## Source files
+
+### `.gitignore`
+
+```
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+venv/
+.env
+
+
+```
+
+### `README.md`
+
+```markdown
+# Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+```
+
+### `chatbot-demo-backend/Dockerfile`
+
+```dockerfile
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+EXPOSE 8000
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"] 
+```
+
+### `chatbot-demo-backend/Procfile`
+
+```
+web: uvicorn main:app --host 0.0.0.0 --port $PORT 
+```
+
+### `chatbot-demo-backend/main.py`
+
+```python
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+from typing import Dict, List
+import random
+
+app = FastAPI()
+
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+class Message(BaseModel):
+    message: str
+
+# Knowledge base for the chatbot
+KNOWLEDGE_BASE = {
+    "what are you": "I'm a demo chatbot that showcases Sam's experience with AI, graph databases, and vector embeddings. I'm a simplified version of a professional implementation Sam created for a major financial firm. Would you like to know more about how I work?",
+    "who are you": "I'm a demonstration of Sam's expertise in AI and database technologies. I showcase his experience with Large Language Models, graph databases, and vector embeddings, which he implemented professionally for a major financial firm. Would you like to learn more about my capabilities?",
+    "tell me about yourself": "I'm a demo chatbot that highlights Sam's professional experience with AI and database technologies. I showcase his work with Large Language Models, graph databases, and vector embeddings, which he implemented for a major financial firm. Would you like to know more about any specific aspect of my implementation?",
+    "what can you do": "I can demonstrate Sam's expertise in AI and database technologies. I showcase his professional implementation of Large Language Models, graph databases, and vector embeddings. Would you like to learn more about any specific capability?",
+    "what technologies do you use": "I showcase Sam's experience with several key technologies: Large Language Models for natural language understanding, graph databases for efficient knowledge representation, and vector embeddings for semantic search. These are the same technologies Sam implemented professionally for a major financial firm. Would you like to know more about how these technologies work together?",
+    "how do you work": "I demonstrate Sam's expertise in AI and database technologies. I use Large Language Models for understanding and generating responses, graph databases for efficient knowledge storage and retrieval, and vector embeddings for semantic search. These are the same technologies Sam implemented professionally for a major financial firm. Would you like to learn more about any specific component?",
+    "what makes you special": "I showcase Sam's professional experience with cutting-edge AI and database technologies. I demonstrate his implementation of Large Language Models, graph databases, and vector embeddings, which he developed for a major financial firm. Would you like to know more about my unique features?",
+    "tell me about your architecture": "I demonstrate Sam's expertise in AI and database architecture. I showcase his professional implementation of Large Language Models for natural language processing, graph databases for efficient knowledge representation, and vector embeddings for semantic search. These are the same technologies Sam implemented for a major financial firm. Would you like to learn more about any specific component?",
+    "what is your purpose": "I'm here to showcase Sam's professional experience with AI and database technologies. I demonstrate his implementation of Large Language Models, graph databases, and vector embeddings, which he developed for a major financial firm. Would you like to learn more about my capabilities?",
+    "how were you built": "I was built to demonstrate Sam's expertise in AI and database technologies. I showcase his professional implementation of Large Language Models, graph databases, and vector embeddings, which he developed for a major financial firm. Would you like to know more about my development process?"
+}
+
+# Default responses for unknown queries
+DEFAULT_RESPONSES = [
+    "I'm a demo chatbot that can tell you about Sam's experience with LLM chatbots and their professional implementation. Try asking 'What are you?' or 'Tell me about yourself'.",
+    "I can explain how Sam has implemented graph databases and vector embeddings professionally. Try asking 'What technologies do you use?' or 'Tell me about the implementation'.",
+    "Sam has implemented advanced AI technologies professionally. Ask me about the implementation, capabilities, or specific technologies used.",
+    "I'm here to showcase Sam's experience with building sophisticated chatbots. Try asking about the technologies used, how it works, or the professional implementation."
+]
+
+def get_response(message: str) -> str:
+    """Get a response based on the user's message."""
+    message = message.lower().strip()
+    
+    # Check if we have a direct match in the knowledge base
+    if message in KNOWLEDGE_BASE:
+        return KNOWLEDGE_BASE[message]
+    
+    # Check for partial matches and natural follow-ups
+    if any(phrase in message for phrase in ["tell me more", "more about", "more info", "more details"]):
+        return "The full version uses Llama 3.2 for language processing, Neo4j for graph database storage, and vector embeddings for semantic search. These technologies have been implemented professionally. Would you like to know about the professional implementation?"
+    
+    if any(phrase in message for phrase in ["professional", "implementation", "where was it used", "where was this used"]):
+        return "Sam built a sophisticated LLM chatbot for a financial firm, using Llama 3.2, Neo4j graph database, and vector embeddings to provide intelligent responses and automate complex queries. This implementation demonstrated the practical application of these technologies in a professional environment. Would you like to know more about the specific technologies used?"
+    
+    if any(phrase in message for phrase in ["technologies", "tech", "what do you use", "what's used"]):
+        return "The full version uses Llama 3.2 for language processing, Neo4j for graph database storage, and vector embeddings for semantic search. These technologies have been implemented professionally. Would you like to know more about how they work together?"
+    
+    if any(phrase in message for phrase in ["how does it work", "how do they work", "work together", "how they work"]):
+        return "The full version combines Llama 3.2 for understanding natural language, Neo4j for storing and querying data in a graph structure, and vector embeddings for semantic search. This architecture has been implemented professionally. Would you like to know more about any specific component?"
+    
+    if any(phrase in message for phrase in ["component", "specific part", "specific technology"]):
+        return "The system has three main components: Llama 3.2 for natural language understanding, Neo4j for graph-based data storage, and vector embeddings for semantic search. Each component plays a crucial role in the system's functionality. Would you like to know more about any of these specifically?"
+    
+    if any(phrase in message for phrase in ["llama", "language model", "language processing"]):
+        return "Llama 3.2 is a powerful language model that enables the chatbot to understand and generate natural language responses. It's particularly effective at understanding complex queries and providing relevant answers. Would you like to know about the other components?"
+    
+    if any(phrase in message for phrase in ["neo4j", "graph", "database"]):
+        return "Neo4j is a graph database that stores data in nodes and relationships, making it perfect for representing complex connections. It's been used professionally to model relationships between entities. Would you like to know about the other components?"
+    
+    if any(phrase in message for phrase in ["vector", "embeddings", "semantic"]):
+        return "Vector embeddings are numerical representations of text that capture semantic meaning. They allow the chatbot to understand the similarity between different concepts and provide more relevant responses. This technology has been implemented professionally. Would you like to know about the other components?"
+    
+    # Check for partial matches in the knowledge base
+    for key, value in KNOWLEDGE_BASE.items():
+        if key in message:
+            return value
+    
+    # Return a random default response
+    return random.choice(DEFAULT_RESPONSES)
+
+@app.post("/chat")
+async def chat(message: Message):
+    try:
+        response = get_response(message.message)
+        return {"response": response}
+    except Exception as e:
+        print(f"Error in chat endpoint: {str(e)}")
+        raise HTTPException(
+            status_code=500,
+            detail="An error occurred while processing your request. Please try again."
+        )
+
+if __name__ == "__main__":
+    import uvicorn
+    import os
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port) 
+```
+
+### `chatbot-demo-backend/requirements.txt`
+
+```
+fastapi==0.109.2
+uvicorn==0.27.1
+python-dotenv==1.0.0
+pydantic==2.6.1
+python-multipart==0.0.9
+starlette==0.36.3 
+```
+
+### `devlog.txt`
+
+```
+06082025
+
+Make better logos for the projects
+Add the chord website (Make it live somehow)
+How can I have the chatbot backend running all the time? 
+
+
+060925 
+
+Improved project logos 
+
+Added piano website using github pages (backend not available yet)
+Removed "Socials"
+Email form submission now active
+
+
+Should I have backend running all the time for portfolio and piano? 
+Add more language about LLMs/Vector embeddings/RAG for the chatbot
+Update the music visualizer to have a live demo button similar to piano
+
+
+```
+
+### `package.json`
+
+```json
+{
+  "name": "portfolio-new",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://samrutan.github.io/portfolio-new",
+  "dependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^13.5.0",
+    "gh-pages": "^6.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
+
+```
+
+### `public/index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Professional portfolio website created with React"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
+```
+
+### `public/manifest.json`
+
+```json
+{
+  "short_name": "React App",
+  "name": "Create React App Sample",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
+
+```
+
+### `public/robots.txt`
+
+```
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow:
+
+```
+
+### `src/App.css`
+
+```css
+.text-stroke {
+  -webkit-text-stroke: 1px white;
+  color: transparent;
+}
+
+@media (min-width: 768px) {
+  .text-stroke {
+    -webkit-text-stroke: 1.5px white;
+  }
+}
+
+
+```
+
+### `src/App.js`
+
+```javascript
 import React, { useState } from 'react';
 import './App.css';
 import headshot from './images/samrutan-headshot-1.jpg';
@@ -965,3 +1419,276 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+
+```
+
+### `src/App.test.js`
+
+```javascript
+import { render, screen } from '@testing-library/react';
+import App from './App';
+
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+```
+
+### `src/components/ChatInterface.js`
+
+```javascript
+import React, { useState, useEffect, useRef } from 'react';
+
+const ChatInterface = () => {
+  const [messages, setMessages] = useState([
+    { text: "Hi! I'm a demo chatbot that can tell you about Sam's experience with LLM chatbots. Try asking 'What are you?' or 'Tell me about yourself'.", sender: 'bot' }
+  ]);
+  const [input, setInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+
+    // Add user message
+    const userMessage = { text: input, sender: 'user' };
+    setMessages(prev => [...prev, userMessage]);
+    setInput('');
+    setIsLoading(true);
+
+    try {
+      const apiUrl = process.env.REACT_APP_API_URL || 'https://portfolio-chat-backend-6cnb.onrender.com';
+      const response = await fetch(`${apiUrl}/chat`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: input }),
+      });
+
+      const data = await response.json();
+      
+      // Add bot response
+      setMessages(prev => [...prev, { text: data.response, sender: 'bot' }]);
+    } catch (error) {
+      console.error('Error:', error);
+      setMessages(prev => [...prev, { 
+        text: 'Sorry, I encountered an error. Please try again.', 
+        sender: 'bot' 
+      }]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <div style={{
+      backgroundColor: '#111',
+      borderRadius: '8px',
+      padding: '24px',
+      height: '500px',
+      display: 'flex',
+      flexDirection: 'column'
+    }}>
+      {/* Messages Container */}
+      <div style={{
+        flex: 1,
+        overflowY: 'auto',
+        marginBottom: '24px',
+        padding: '16px',
+        backgroundColor: 'rgba(0,0,0,0.3)',
+        borderRadius: '8px',
+        '&::-webkit-scrollbar': {
+          width: '8px',
+        },
+        '&::-webkit-scrollbar-track': {
+          background: 'rgba(0,0,0,0.1)',
+          borderRadius: '4px',
+        },
+        '&::-webkit-scrollbar-thumb': {
+          background: 'rgba(255,255,255,0.2)',
+          borderRadius: '4px',
+          '&:hover': {
+            background: 'rgba(255,255,255,0.3)',
+          },
+        }
+      }}>
+        {messages.map((message, index) => (
+          <div
+            key={index}
+            style={{
+              marginBottom: '16px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: message.sender === 'user' ? 'flex-end' : 'flex-start'
+            }}
+          >
+            <div style={{
+              padding: '12px 16px',
+              borderRadius: '8px',
+              maxWidth: '80%',
+              backgroundColor: message.sender === 'user' 
+                ? 'rgba(0, 255, 255, 0.1)' 
+                : 'rgba(255, 255, 255, 0.1)',
+              border: message.sender === 'user'
+                ? '1px solid rgba(0, 255, 255, 0.3)'
+                : '1px solid rgba(255, 255, 255, 0.3)'
+            }}>
+              <p style={{ margin: 0, color: '#fff' }}>{message.text}</p>
+            </div>
+          </div>
+        ))}
+        {isLoading && (
+          <div style={{
+            display: 'flex',
+            justifyContent: 'flex-start',
+            marginBottom: '16px'
+          }}>
+            <div style={{
+              padding: '12px 16px',
+              borderRadius: '8px',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              border: '1px solid rgba(255, 255, 255, 0.3)'
+            }}>
+              <p style={{ margin: 0, color: '#fff' }}>Thinking...</p>
+            </div>
+          </div>
+        )}
+        <div ref={messagesEndRef} />
+      </div>
+
+      {/* Input Form */}
+      <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '12px' }}>
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Ask me about the chatbot..."
+          style={{
+            flex: 1,
+            padding: '12px 16px',
+            backgroundColor: 'rgba(0,0,0,0.3)',
+            border: '1px solid rgba(255,255,255,0.3)',
+            borderRadius: '8px',
+            color: 'white',
+            fontSize: '14px',
+            outline: 'none'
+          }}
+        />
+        <button
+          type="submit"
+          disabled={isLoading}
+          style={{
+            padding: '12px 24px',
+            backgroundColor: 'rgba(0, 255, 255, 0.1)',
+            border: '1px solid rgba(0, 255, 255, 0.3)',
+            borderRadius: '8px',
+            color: 'white',
+            cursor: 'pointer',
+            fontSize: '14px',
+            textTransform: 'uppercase',
+            letterSpacing: '1px'
+          }}
+        >
+          Send
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default ChatInterface; 
+```
+
+### `src/index.css`
+
+```css
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+```
+
+### `src/index.js`
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import Portfolio from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Portfolio />
+  </React.StrictMode>
+);
+
+reportWebVitals();
+```
+
+### `src/reportWebVitals.js`
+
+```javascript
+const reportWebVitals = onPerfEntry => {
+  if (onPerfEntry && onPerfEntry instanceof Function) {
+    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+      getCLS(onPerfEntry);
+      getFID(onPerfEntry);
+      getFCP(onPerfEntry);
+      getLCP(onPerfEntry);
+      getTTFB(onPerfEntry);
+    });
+  }
+};
+
+export default reportWebVitals;
+
+```
+
+### `src/setupTests.js`
+
+```javascript
+// jest-dom adds custom jest matchers for asserting on DOM nodes.
+// allows you to do things like:
+// expect(element).toHaveTextContent(/react/i)
+// learn more: https://github.com/testing-library/jest-dom
+import '@testing-library/jest-dom';
+
+```
+
