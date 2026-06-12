@@ -3,6 +3,10 @@ import './App.css';
 import headshot from './images/samrutan-headshot-1.jpg';
 import fullMoonImage from './images/Full_Moon_Homepage_Pic.png';
 
+// Web3Forms access key. Get yours (free) at https://web3forms.com by entering
+// your email; they email you a key. Submissions are delivered to that email.
+const WEB3FORMS_ACCESS_KEY = '534895b4-0ed7-40e0-85fb-4aff48649010';
+
 // Collapsible Category Component
 const CollapsibleCategory = ({ title, content }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -87,23 +91,29 @@ const Portfolio = () => {
     setSubmitStatus('');
 
     try {
-      const response = await fetch('https://formspree.io/f/xnnvpobj', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
         body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: 'New message from your portfolio site',
+          from_name: 'Portfolio Contact Form',
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          _replyto: formData.email
         }),
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (result.success) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
       } else {
+        console.error('Web3Forms error:', result);
         setSubmitStatus('error');
       }
     } catch (error) {
