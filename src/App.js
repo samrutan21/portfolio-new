@@ -58,7 +58,6 @@ const Portfolio = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    projectType: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -96,7 +95,6 @@ const Portfolio = () => {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          projectType: formData.projectType,
           message: formData.message,
           _replyto: formData.email
         }),
@@ -104,7 +102,7 @@ const Portfolio = () => {
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({ name: '', email: '', projectType: '', message: '' });
+        setFormData({ name: '', email: '', message: '' });
       } else {
         setSubmitStatus('error');
       }
@@ -884,32 +882,6 @@ const Portfolio = () => {
                         outline: 'none'
                       }}
                     />
-                  </div>
-                  
-                  <div style={{ marginBottom: '24px' }}>
-                    <select
-                      name="projectType"
-                      value={formData.projectType}
-                      onChange={handleInputChange}
-                      required
-                      style={{
-                        width: '100%',
-                        padding: '16px 0',
-                        background: 'transparent',
-                        border: 'none',
-                        borderBottom: '1px solid #333',
-                        color: formData.projectType ? 'white' : '#999',
-                        fontSize: '16px',
-                        outline: 'none',
-                        appearance: 'none'
-                      }}
-                    >
-                      <option value="" disabled style={{ background: 'black' }}>Project Type</option>
-                      <option value="design" style={{ background: 'black' }}>Design Project</option>
-                      <option value="development" style={{ background: 'black' }}>Development Project</option>
-                      <option value="consultation" style={{ background: 'black' }}>Consultation</option>
-                      <option value="other" style={{ background: 'black' }}>Other</option>
-                    </select>
                   </div>
                   
                   <div style={{ marginBottom: '32px' }}>
