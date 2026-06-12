@@ -385,9 +385,9 @@ const Portfolio = () => {
                           overflow: 'hidden'
                         }}>
                           <div style={{ padding: '24px' }}>
-                            <h3 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '12px' }}>Premiere Pro & After Effects LLM Assistant</h3>
+                            <h3 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '12px' }}>Premiere & After Effects LLM Assistant</h3>
                             <p style={{ color: '#999', marginBottom: '16px', lineHeight: '1.6' }}>
-                              An Adobe extension for Premiere Pro and After Effects that integrates AI language models directly into your creative workflow. Connect to OpenAI, Anthropic, Google Gemini, or locally-hosted LLMs to get intelligent, context-aware suggestions, generate custom expressions on demand, and streamline complex animations — without leaving Premiere Pro or After Effects. 700+ downloads on Adobe Exchange.
+                              An Adobe extension for Premiere and After Effects that integrates AI language models directly into your creative workflow. Connect to OpenAI, Anthropic, Google Gemini, or locally-hosted LLMs to get intelligent, context-aware suggestions, generate custom expressions on demand, and streamline complex animations — without leaving Premiere or After Effects. 700+ downloads on Adobe Exchange.
                             </p>
                             <div style={{ display: 'flex', gap: '8px', marginBottom: '20px', flexWrap: 'wrap' }}>
                               <span style={{ 
@@ -420,7 +420,7 @@ const Portfolio = () => {
                                 fontSize: '12px',
                                 borderRadius: '4px'
                               }}>
-                                Premiere Pro & After Effects
+                                Premiere & After Effects
                               </span>
                             </div>
                             <a 
@@ -677,7 +677,7 @@ const Portfolio = () => {
                     My work spans high-profile music documentaries, sports docs, and character-driven stories — including Lead Assistant Editor on Olivia Rodrigo: driving home 2 u (Disney+), Assistant Editor on Mary J. Blige's My Life (Amazon Prime), Rather (2023), and Homecoming: The Tokyo Series (2026).
                   </p>
                   <p style={{ fontSize: '18px', lineHeight: '1.6', color: '#ccc', marginBottom: '24px' }}>
-                    I'm passionate about the craft of post production and the technology that powers it — including tools I've built myself, like an AI-powered Adobe Premiere Pro and After Effects extension with 700+ downloads on Adobe Exchange.
+                    I'm passionate about the craft of post production and the technology that powers it — including tools I've built myself, like an AI-powered Adobe Premiere and After Effects extension with 700+ downloads on Adobe Exchange.
                   </p>
                   <p style={{ fontSize: '18px', lineHeight: '1.6', color: '#ccc' }}>
                     Currently working at Supper Club, focused on documentary and unscripted content.
@@ -700,13 +700,13 @@ const Portfolio = () => {
                         <li style={{ marginBottom: '8px' }}>Documentary</li>
                         <li style={{ marginBottom: '8px' }}>Music Film</li>
                         <li style={{ marginBottom: '8px' }}>Avid Media Composer</li>
-                        <li style={{ marginBottom: '8px' }}>Adobe Premiere Pro</li>
+                        <li style={{ marginBottom: '8px' }}>Adobe Premiere</li>
                       </ul>
                     </div>
                     <div>
                       <h4 style={{ marginBottom: '16px', fontSize: '18px' }}>Creative Technology</h4>
                       <ul style={{ color: '#999', listStyle: 'none', padding: 0 }}>
-                        <li style={{ marginBottom: '8px' }}>Adobe Premiere Pro & After Effects Extension Development</li>
+                        <li style={{ marginBottom: '8px' }}>Adobe Premiere & After Effects Extension Development</li>
                         <li style={{ marginBottom: '8px' }}>AI Filmmaking</li>
                         <li style={{ marginBottom: '8px' }}>Sound Design</li>
                         <li style={{ marginBottom: '8px' }}>Music Production</li>
