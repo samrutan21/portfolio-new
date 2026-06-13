@@ -227,7 +227,7 @@ const Portfolio = () => {
                   textTransform: 'uppercase',
                   letterSpacing: '2px',
                   marginBottom: '16px'
-                }}>Assistant Editor | Documentary & Music Film</p>
+                }}>Assistant Editor | Documentary Film</p>
                 
                 <h1 style={{
                   fontSize: '48px',
