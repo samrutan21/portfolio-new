@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/portfolio-new/static/css/main.49f0d190.css",
-    "main.js": "/portfolio-new/static/js/main.e16f1a96.js",
+    "main.js": "/portfolio-new/static/js/main.c9564d4a.js",
     "static/js/453.998496b1.chunk.js": "/portfolio-new/static/js/453.998496b1.chunk.js",
     "static/media/Full_Moon_Homepage_Pic.png": "/portfolio-new/static/media/Full_Moon_Homepage_Pic.dc346243b35d21943be2.png",
     "static/media/samrutan-headshot-1.jpg": "/portfolio-new/static/media/samrutan-headshot-1.246db97cc3f2745d988a.jpg",
     "index.html": "/portfolio-new/index.html",
     "main.49f0d190.css.map": "/portfolio-new/static/css/main.49f0d190.css.map",
-    "main.e16f1a96.js.map": "/portfolio-new/static/js/main.e16f1a96.js.map",
+    "main.c9564d4a.js.map": "/portfolio-new/static/js/main.c9564d4a.js.map",
     "453.998496b1.chunk.js.map": "/portfolio-new/static/js/453.998496b1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.49f0d190.css",
-    "static/js/main.e16f1a96.js"
+    "static/js/main.c9564d4a.js"
   ]
 }
