@@ -621,11 +621,11 @@ const Portfolio = () => {
               gap: '24px'
             }}>
               {[
-                { name: 'DISNEY+', year: '2021-2022' },
-                { name: 'NETFLIX', year: '2023' },
-                { name: 'AMAZON', year: '2019-2020' },
-                { name: 'MLB', year: '2026' },
                 { name: 'YOUTUBE', year: '2026' },
+                { name: 'MLB', year: '2026' },
+                { name: 'NETFLIX', year: '2023' },
+                { name: 'DISNEY+', year: '2021-2022' },
+                { name: 'AMAZON', year: '2019-2020' },
                 { name: 'WHITEHOUSE POST', year: '2018-2019' }
               ].map(collab => (
                 <div key={collab.name} style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
