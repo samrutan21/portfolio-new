@@ -756,60 +756,60 @@ const Portfolio = () => {
                     gap: '16px' 
                   }}>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Assistant Editor</h4>
-                        <span style={{ color: '#666' }}>2025 - Present</span>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>We Are Osos</h4>
+                        <span style={{ color: '#666' }}>IN POST · 2026</span>
                       </div>
-                      <p style={{ color: '#999' }}>Supper Club</p>
+                      <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>Supper Club · Mortal Media · YouTube</p>
+                      <p style={{ color: '#999', fontSize: '14px' }}>Assistant Editor · Osos Monterrey, owned by Ryan Kalil &amp; Blake Griffin</p>
                     </div>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Assistant Editor</h4>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Homecoming: The Tokyo Series</h4>
                         <span style={{ color: '#666' }}>2026</span>
                       </div>
-                      <p style={{ color: '#999' }}>We Are Osos, YouTube</p>
+                      <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>Supper Club · MLB Studios · CNN Films</p>
+                      <p style={{ color: '#999', fontSize: '14px' }}>Assistant Editor · 2025 MLB Tokyo Series</p>
                     </div>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Assistant Editor</h4>
-                        <span style={{ color: '#666' }}>2026</span>
-                      </div>
-                      <p style={{ color: '#999' }}>Homecoming: The Tokyo Series</p>
-                    </div>
-                    <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Assistant Editor</h4>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Rather</h4>
                         <span style={{ color: '#666' }}>2023</span>
                       </div>
-                      <p style={{ color: '#999' }}>Rather</p>
+                      <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>Wavelength · Netflix</p>
+                      <p style={{ color: '#999', fontSize: '14px' }}>Assistant Editor · Dan Rather feature documentary</p>
                     </div>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Lead Assistant Editor</h4>
-                        <span style={{ color: '#666' }}>2021 - 2022</span>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Olivia Rodrigo: driving home 2 u</h4>
+                        <span style={{ color: '#666' }}>2022</span>
                       </div>
-                      <p style={{ color: '#999' }}>Olivia Rodrigo: driving home 2 u, Disney+</p>
+                      <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>Supper Club · Disney+</p>
+                      <p style={{ color: '#999', fontSize: '14px' }}>Lead Assistant Editor · music documentary</p>
                     </div>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Assistant Editor</h4>
-                        <span style={{ color: '#666' }}>2019 - 2020</span>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Mary J. Blige's My Life</h4>
+                        <span style={{ color: '#666' }}>2021</span>
                       </div>
-                      <p style={{ color: '#999' }}>Mary J. Blige's My Life, Amazon Prime</p>
+                      <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>eOne · Amazon Prime</p>
+                      <p style={{ color: '#999', fontSize: '14px' }}>Assistant Editor · music documentary</p>
                     </div>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Assistant Editor</h4>
-                        <span style={{ color: '#666' }}>2018 - 2019</span>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Branded &amp; Commercial Work</h4>
+                        <span style={{ color: '#666' }}>2018–2020</span>
                       </div>
-                      <p style={{ color: '#999' }}>Whitehouse Post</p>
+                      <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>Whitehouse Post</p>
+                      <p style={{ color: '#999', fontSize: '14px' }}>Assistant Editor · editorial support &amp; media management, leading post house</p>
                     </div>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Production Trainee</h4>
-                        <span style={{ color: '#666' }}>2018</span>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Daughters of Destiny</h4>
+                        <span style={{ color: '#666' }}>2016–2018</span>
                       </div>
-                      <p style={{ color: '#999' }}>NBA</p>
+                      <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>Cause &amp; Affect Media · Netflix</p>
+                      <p style={{ color: '#999', fontSize: '14px' }}>Post Asst &amp; AE · also The Girl in the Picture, UNESCO short</p>
                     </div>
                   </div>
                 </div>
