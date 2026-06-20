@@ -364,6 +364,37 @@ const Portfolio = () => {
                           Post Production
                         </div>
                       </div>
+
+                      <div style={{ marginTop: '24px' }}>
+                        <a
+                          href="https://www.imdb.com/name/nm9081983/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            display: 'inline-block',
+                            background: 'none',
+                            border: '1px solid rgba(255,255,255,0.3)',
+                            color: 'white',
+                            padding: '8px 16px',
+                            fontSize: '12px',
+                            letterSpacing: '1px',
+                            textTransform: 'uppercase',
+                            textDecoration: 'none',
+                            borderRadius: '4px',
+                            transition: 'all 0.3s ease',
+                          }}
+                          onMouseOver={(e) => {
+                            e.target.style.borderColor = 'white';
+                            e.target.style.backgroundColor = 'rgba(255,255,255,0.1)';
+                          }}
+                          onMouseOut={(e) => {
+                            e.target.style.borderColor = 'rgba(255,255,255,0.3)';
+                            e.target.style.backgroundColor = 'transparent';
+                          }}
+                        >
+                          View on IMDb →
+                        </a>
+                      </div>
                     </div>
                   }
                 />
