@@ -703,7 +703,7 @@ const Portfolio = () => {
               }}>
                 <div>
                   <p style={{ fontSize: '18px', lineHeight: '1.6', color: '#ccc', marginBottom: '24px' }}>
-                    I'm Sam Rutan, an Assistant Editor based in New Jersey. I specialize in documentary and music film, with credits on projects for Disney+, Amazon Prime, and Netflix.
+                    I'm Sam Rutan, an Assistant Editor based in New Jersey. I specialize in documentary feature and episodic, with credits on projects for Disney+, Amazon Prime, and Netflix.
                   </p>
                   <p style={{ fontSize: '18px', lineHeight: '1.6', color: '#ccc', marginBottom: '24px' }}>
                     My work spans high-profile music documentaries, sports docs, and character-driven stories — including Assistant Editor on We Are Osos (YouTube, 2026), Lead Assistant Editor on Olivia Rodrigo: driving home 2 u (Disney+), Assistant Editor on Mary J. Blige's My Life (Amazon Prime), Rather (2023), and Homecoming: The Tokyo Series (2026).
