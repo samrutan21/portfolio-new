@@ -625,6 +625,7 @@ const Portfolio = () => {
                 { name: 'NETFLIX', year: '2023' },
                 { name: 'AMAZON', year: '2019-2020' },
                 { name: 'MLB', year: '2026' },
+                { name: 'YOUTUBE', year: '2026' },
                 { name: 'WHITEHOUSE POST', year: '2018-2019' }
               ].map(collab => (
                 <div key={collab.name} style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
@@ -705,7 +706,7 @@ const Portfolio = () => {
                     I'm Sam Rutan, an Assistant Editor based in New Jersey. I specialize in documentary and music film, with credits on projects for Disney+, Amazon Prime, and Netflix.
                   </p>
                   <p style={{ fontSize: '18px', lineHeight: '1.6', color: '#ccc', marginBottom: '24px' }}>
-                    My work spans high-profile music documentaries, sports docs, and character-driven stories — including Lead Assistant Editor on Olivia Rodrigo: driving home 2 u (Disney+), Assistant Editor on Mary J. Blige's My Life (Amazon Prime), Rather (2023), and Homecoming: The Tokyo Series (2026).
+                    My work spans high-profile music documentaries, sports docs, and character-driven stories — including Assistant Editor on We Are Osos (YouTube, 2026), Lead Assistant Editor on Olivia Rodrigo: driving home 2 u (Disney+), Assistant Editor on Mary J. Blige's My Life (Amazon Prime), Rather (2023), and Homecoming: The Tokyo Series (2026).
                   </p>
                   <p style={{ fontSize: '18px', lineHeight: '1.6', color: '#ccc', marginBottom: '24px' }}>
                     I'm passionate about the craft of post production and the technology that powers it — including tools I've built myself, like an AI-powered Adobe Premiere and After Effects extension with 700+ downloads on Adobe Exchange.
@@ -760,6 +761,13 @@ const Portfolio = () => {
                         <span style={{ color: '#666' }}>2025 - Present</span>
                       </div>
                       <p style={{ color: '#999' }}>Supper Club</p>
+                    </div>
+                    <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Assistant Editor</h4>
+                        <span style={{ color: '#666' }}>2026</span>
+                      </div>
+                      <p style={{ color: '#999' }}>We Are Osos, YouTube</p>
                     </div>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
