@@ -267,6 +267,24 @@ const Portfolio = () => {
                 >
                   View Work
                 </button>
+                <a
+                  href="/portfolio-new/Sam_Rutan_Resume_Editorial.pdf"
+                  download="Sam_Rutan_Resume_Editorial.pdf"
+                  style={{
+                    background: 'none',
+                    border: '1px solid rgba(255,255,255,0.5)',
+                    color: 'white',
+                    padding: '12px 32px',
+                    fontSize: '14px',
+                    letterSpacing: '2px',
+                    textTransform: 'uppercase',
+                    cursor: 'pointer',
+                    textDecoration: 'none',
+                    display: 'inline-block'
+                  }}
+                >
+                  Download Resume
+                </a>
               </div>
             </div>
           </section>
@@ -749,7 +767,27 @@ const Portfolio = () => {
                 
                 {/* Experience */}
                 <div style={{ marginTop: '40px' }}>
-                  <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '24px' }}>EXPERIENCE</h3>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '24px' }}>
+                    <h3 style={{ fontSize: '24px', fontWeight: 'bold' }}>EXPERIENCE</h3>
+                    <a
+                      href="/portfolio-new/Sam_Rutan_Resume_Editorial.pdf"
+                      download="Sam_Rutan_Resume_Editorial.pdf"
+                      style={{
+                        background: 'none',
+                        border: '1px solid rgba(255,255,255,0.3)',
+                        color: 'white',
+                        padding: '8px 16px',
+                        fontSize: '12px',
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase',
+                        textDecoration: 'none',
+                        borderRadius: '4px',
+                        display: 'inline-block'
+                      }}
+                    >
+                      Download Resume
+                    </a>
+                  </div>
                   <div style={{ 
                     display: 'flex', 
                     flexDirection: 'column',
