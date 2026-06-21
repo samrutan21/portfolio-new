@@ -250,41 +250,43 @@ const Portfolio = () => {
                   Post production professional with credits on Disney+, Amazon Prime, and Netflix. Based in New Jersey.
                 </p>
                 
-                <button 
-                  style={{
-                    background: 'none',
-                    border: '1px solid white',
-                    color: 'white',
-                    padding: '12px 32px',
-                    fontSize: '14px',
-                    letterSpacing: '2px',
-                    textTransform: 'uppercase',
-                    cursor: 'pointer',
-                    position: 'relative',
-                    overflow: 'hidden'
-                  }}
-                  onClick={() => handleNavClick('work')}
-                >
-                  View Work
-                </button>
-                <a
-                  href="/portfolio-new/Sam_Rutan_Resume_Editorial.pdf"
-                  download="Sam_Rutan_Resume_Editorial.pdf"
-                  style={{
-                    background: 'none',
-                    border: '1px solid rgba(255,255,255,0.5)',
-                    color: 'white',
-                    padding: '12px 32px',
-                    fontSize: '14px',
-                    letterSpacing: '2px',
-                    textTransform: 'uppercase',
-                    cursor: 'pointer',
-                    textDecoration: 'none',
-                    display: 'inline-block'
-                  }}
-                >
-                  Download Resume
-                </a>
+                <div style={{ display: 'flex', flexDirection: 'row', gap: '20px', justifyContent: 'center' }}>
+                  <button 
+                    style={{
+                      background: 'none',
+                      border: '1px solid white',
+                      color: 'white',
+                      padding: '12px 32px',
+                      fontSize: '14px',
+                      letterSpacing: '2px',
+                      textTransform: 'uppercase',
+                      cursor: 'pointer',
+                      position: 'relative',
+                      overflow: 'hidden'
+                    }}
+                    onClick={() => handleNavClick('work')}
+                  >
+                    View Work
+                  </button>
+                  <a
+                    href="/portfolio-new/Sam_Rutan_Resume_Editorial.pdf"
+                    download="Sam_Rutan_Resume_Editorial.pdf"
+                    style={{
+                      background: 'none',
+                      border: '1px solid rgba(255,255,255,0.5)',
+                      color: 'white',
+                      padding: '12px 32px',
+                      fontSize: '14px',
+                      letterSpacing: '2px',
+                      textTransform: 'uppercase',
+                      cursor: 'pointer',
+                      textDecoration: 'none',
+                      display: 'inline-block'
+                    }}
+                  >
+                    Download Resume
+                  </a>
+                </div>
               </div>
             </div>
           </section>
