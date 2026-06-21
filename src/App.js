@@ -805,11 +805,19 @@ const Portfolio = () => {
                     </div>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>The Girl and the Picture</h4>
+                        <span style={{ color: '#666' }}>2018</span>
+                      </div>
+                      <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>Cause &amp; Affect Media · USC Shoah Foundation</p>
+                      <p style={{ color: '#999', fontSize: '14px' }}>Assistant Editor · award-winning documentary short</p>
+                    </div>
+                    <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
                         <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Daughters of Destiny</h4>
-                        <span style={{ color: '#666' }}>2016–2018</span>
+                        <span style={{ color: '#666' }}>2017</span>
                       </div>
                       <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>Cause &amp; Affect Media · Netflix</p>
-                      <p style={{ color: '#999', fontSize: '14px' }}>Post Asst &amp; AE · also The Girl in the Picture, UNESCO short</p>
+                      <p style={{ color: '#999', fontSize: '14px' }}>Post-Production Assistant · episodic international doc series</p>
                     </div>
                   </div>
                 </div>
