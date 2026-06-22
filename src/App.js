@@ -837,7 +837,7 @@ const Portfolio = () => {
                     </div>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}><a href="https://whitehousepost.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Branded &amp; Commercial Work</a></h4>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Branded &amp; Commercial Work</h4>
                         <span style={{ color: '#666' }}>2018–2020</span>
                       </div>
                       <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>Whitehouse Post</p>
