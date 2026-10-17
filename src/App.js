@@ -7,6 +7,58 @@ import fullMoonImage from './images/Full_Moon_Homepage_Pic.png';
 // your email; they email you a key. Submissions are delivered to that email.
 const WEB3FORMS_ACCESS_KEY = '534895b4-0ed7-40e0-85fb-4aff48649010';
 
+// Carousel component for Recent Work videos
+const VideoCarousel = ({ videos }) => {
+  const [index, setIndex] = useState(0);
+  const prev = () => setIndex(i => (i - 1 + videos.length) % videos.length);
+  const next = () => setIndex(i => (i + 1) % videos.length);
+  const { label, src } = videos[index];
+  const arrowStyle = {
+    background: 'none',
+    border: '1px solid rgba(255,255,255,0.3)',
+    color: 'white',
+    width: '36px',
+    height: '36px',
+    fontSize: '18px',
+    cursor: 'pointer',
+    borderRadius: '4px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexShrink: 0
+  };
+  return (
+    <div>
+      <div style={{
+        position: 'relative',
+        paddingBottom: '56.25%',
+        height: 0,
+        overflow: 'hidden',
+        backgroundColor: '#111',
+        marginBottom: '16px'
+      }}>
+        <iframe
+          key={src}
+          width="100%"
+          height="100%"
+          src={`https://www.youtube.com/embed/${src}`}
+          title={label}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+        ></iframe>
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <button style={arrowStyle} onClick={prev}>‹</button>
+        <span style={{ color: '#ccc', fontSize: '15px', flex: 1 }}>{label}</span>
+        <span style={{ color: '#666', fontSize: '13px' }}>{index + 1} / {videos.length}</span>
+        <button style={arrowStyle} onClick={next}>›</button>
+      </div>
+    </div>
+  );
+};
+
 // Collapsible Category Component
 const CollapsibleCategory = ({ title, content, defaultOpen = false }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
@@ -414,6 +466,19 @@ const Portfolio = () => {
                         >
                           View on IMDb →
                         </a>
+                      </div>
+
+                      {/* Recent Work */}
+                      <div style={{ marginTop: '48px', borderTop: '1px solid #333', paddingTop: '32px' }}>
+                        <h3 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '4px' }}>RECENT WORK</h3>
+                        <p style={{ color: '#888', fontSize: '14px', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '24px' }}>
+                          Editor — We Are Osos Episode Teasers
+                        </p>
+                        <VideoCarousel videos={[
+                          { label: 'We Are Osos — Episode 5 Teaser', src: 'iTJiaZ9p7W4' },
+                          { label: 'We Are Osos — Episode 6 Teaser', src: 'ro8Hs6ELnbI' },
+                          { label: 'We Are Osos — Episode 7 Teaser', src: 'ZtxPbW1Ld3c' },
+                        ]} />
                       </div>
                     </div>
                   }
