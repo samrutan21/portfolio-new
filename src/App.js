@@ -863,7 +863,7 @@ const Portfolio = () => {
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
                         <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}><a href="https://www.youtube.com/watch?v=p35Kp8mMKY8" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>We Are Osos</a></h4>
-                        <span style={{ color: '#666' }}>IN POST · 2026</span>
+                        <span style={{ color: '#666' }}>2026</span>
                       </div>
                       <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>Supper Club · Mortal Media · YouTube</p>
                       <p style={{ color: '#999', fontSize: '14px' }}>Assistant Editor · Osos Monterrey, owned by Ryan Kalil &amp; Blake Griffin</p>
