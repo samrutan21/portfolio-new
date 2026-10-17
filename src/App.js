@@ -818,6 +818,7 @@ const Portfolio = () => {
                         <li style={{ marginBottom: '8px' }}>Music Film</li>
                         <li style={{ marginBottom: '8px' }}>Avid Media Composer</li>
                         <li style={{ marginBottom: '8px' }}>Adobe Premiere</li>
+                        <li style={{ marginBottom: '8px' }}>DaVinci Resolve</li>
                       </ul>
                     </div>
                     <div>
@@ -866,7 +867,7 @@ const Portfolio = () => {
                         <span style={{ color: '#666' }}>2026</span>
                       </div>
                       <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>Supper Club · Mortal Media · YouTube</p>
-                      <p style={{ color: '#999', fontSize: '14px' }}>Assistant Editor · Osos Monterrey, owned by Ryan Kalil &amp; Blake Griffin</p>
+                      <p style={{ color: '#999', fontSize: '14px' }}>Lead Assistant Editor · Osos Monterrey, owned by Ryan Kalil &amp; Blake Griffin</p>
                     </div>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
