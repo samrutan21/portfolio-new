@@ -569,6 +569,75 @@ const Portfolio = () => {
                             </a>
                           </div>
                         </div>
+
+                        {/* SyncGrid */}
+                        <div style={{
+                          backgroundColor: '#111',
+                          borderRadius: '8px',
+                          overflow: 'hidden'
+                        }}>
+                          <div style={{ padding: '24px' }}>
+                            <h3 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '12px' }}>SyncGrid</h3>
+                            <p style={{ color: '#999', marginBottom: '16px', lineHeight: '1.6' }}>
+                              SyncGrid is a post-production tool I designed and built to speed up asset tracking in documentary workflows. It replaces the painstaking manual logging behind GFX, music cue, archival and subtitle trackers. SyncGrid reads the editor's XML, EDL and subtitle exports and builds timeline-linked trackers automatically. Every item is marked on the playbar, notes and clearance evidence attach to each one, and when a new cut comes in, the work carries forward while new, changed and shifted items are flagged. Once a cut's files are loaded, producers, clearance and the rest of the team get a detailed view of every asset without opening an NLE. Exports to CSV, PDF and Excel.
+                            </p>
+                            <div style={{ display: 'flex', gap: '8px', marginBottom: '20px', flexWrap: 'wrap' }}>
+                              <span style={{
+                                backgroundColor: 'rgba(255,255,255,0.1)',
+                                padding: '4px 8px',
+                                fontSize: '12px',
+                                borderRadius: '4px'
+                              }}>
+                                Post Production
+                              </span>
+                              <span style={{
+                                backgroundColor: 'rgba(255,255,255,0.1)',
+                                padding: '4px 8px',
+                                fontSize: '12px',
+                                borderRadius: '4px'
+                              }}>
+                                Asset Tracking
+                              </span>
+                              <span style={{
+                                backgroundColor: 'rgba(255,255,255,0.1)',
+                                padding: '4px 8px',
+                                fontSize: '12px',
+                                borderRadius: '4px'
+                              }}>
+                                Documentary
+                              </span>
+                            </div>
+                            <a
+                              href="https://samrutan21.github.io/SyncGrid/"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{
+                                display: 'inline-block',
+                                background: 'none',
+                                border: '1px solid rgba(255,255,255,0.3)',
+                                color: 'white',
+                                padding: '8px 16px',
+                                fontSize: '12px',
+                                letterSpacing: '1px',
+                                textTransform: 'uppercase',
+                                textDecoration: 'none',
+                                borderRadius: '4px',
+                                transition: 'all 0.3s ease',
+                              }}
+                              onMouseOver={(e) => {
+                                e.target.style.borderColor = 'white';
+                                e.target.style.backgroundColor = 'rgba(255,255,255,0.1)';
+                              }}
+                              onMouseOut={(e) => {
+                                e.target.style.borderColor = 'rgba(255,255,255,0.3)';
+                                e.target.style.backgroundColor = 'transparent';
+                              }}
+                            >
+                              View the Demo →
+                            </a>
+                          </div>
+                        </div>
+
                       </div>
                     </div>
                   }
