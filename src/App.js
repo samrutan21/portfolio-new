@@ -477,8 +477,9 @@ const Portfolio = () => {
                         <VideoCarousel videos={[
                           { label: 'We Are Osos — Episode 5 Teaser', src: 'iTJiaZ9p7W4' },
                           { label: 'We Are Osos — Episode 6 Teaser', src: 'ro8Hs6ELnbI' },
-                          { label: 'We Are Osos — Episode 7 Teaser', src: 'ZtxPbW1Ld3c' },
-                        ]} />
+           { label: 'We Are Osos — Episode 7 Teaser', src: 'ZtxPbW1Ld3c' },
+           { label: 'We Are Osos — Episode 8 Teaser', src: '2A8C8GXyTIc' },
+         ]} />
                       </div>
                     </div>
                   }
