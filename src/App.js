@@ -1,7 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { HashRouter, NavLink, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
 import headshot from './images/samrutan-headshot-1.jpg';
 import fullMoonImage from './images/Full_Moon_Homepage_Pic.png';
+
+const useIsMobile = (breakpoint = 768) => {
+  const query = `(max-width: ${breakpoint - 1}px)`;
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia(query).matches : false
+  );
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    const onChange = () => setIsMobile(media.matches);
+    onChange();
+    media.addEventListener('change', onChange);
+    return () => media.removeEventListener('change', onChange);
+  }, [query]);
+
+  return isMobile;
+};
 
 // Web3Forms access key. Get yours (free) at https://web3forms.com by entering
 // your email; they email you a key. Submissions are delivered to that email.
@@ -51,7 +69,7 @@ const VideoCarousel = ({ videos }) => {
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
         <button style={arrowStyle} onClick={prev}>‹</button>
-        <span style={{ color: '#ccc', fontSize: '15px', flex: 1 }}>{label}</span>
+        <span style={{ color: '#ccc', fontSize: '15px', flex: 1, minWidth: 0 }}>{label}</span>
         <span style={{ color: '#666', fontSize: '13px' }}>{index + 1} / {videos.length}</span>
         <button style={arrowStyle} onClick={next}>›</button>
       </div>
@@ -106,10 +124,34 @@ const CollapsibleCategory = ({ title, content, defaultOpen = false }) => {
   );
 };
 
+const sectionFromPath = (pathname) => {
+  const raw = pathname.replace(/^\/+|\/+$/g, '');
+  const sectionMap = { '': 'home', home: 'home', work: 'work', about: 'about', contact: 'contact' };
+  return sectionMap[raw];
+};
+
+const navLinkStyle = (isActive, fontSize = '14px') => ({
+  background: 'none',
+  border: 'none',
+  cursor: 'pointer',
+  textTransform: 'uppercase',
+  letterSpacing: '2px',
+  fontSize,
+  fontFamily: 'inherit',
+  color: isActive ? 'white' : '#888',
+  transition: 'color 0.3s',
+  textDecoration: 'none'
+});
+
 const Portfolio = () => {
-  const [activeSection, setActiveSection] = useState('home');
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isMobile = useIsMobile();
+  const activeSection = sectionFromPath(location.pathname);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+  const [headshotLoaded, setHeadshotLoaded] = useState(false);
+  const headshotRef = useRef(null);
+
   // Contact form state
   const [formData, setFormData] = useState({
     name: '',
@@ -121,9 +163,45 @@ const Portfolio = () => {
 
   const sections = ['home', 'work', 'about', 'contact'];
 
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = headshot;
+    document.head.appendChild(link);
+    return () => {
+      link.remove();
+    };
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (!isMobile) setIsMenuOpen(false);
+  }, [isMobile]);
+
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    if (activeSection !== 'about') {
+      setHeadshotLoaded(false);
+      return;
+    }
+    const img = headshotRef.current;
+    if (img && img.complete && img.naturalWidth > 0) setHeadshotLoaded(true);
+  }, [activeSection]);
+
   // Navigation handler
   const handleNavClick = (section) => {
-    setActiveSection(section);
+    navigate(section === 'home' ? '/' : `/${section}`);
     setIsMenuOpen(false);
   };
 
@@ -176,6 +254,10 @@ const Portfolio = () => {
     }
   };
 
+  if (!activeSection) {
+    return <Navigate to="/" replace />;
+  }
+
   return (
     <div style={{ 
       backgroundColor: 'black', 
@@ -205,36 +287,81 @@ const Portfolio = () => {
               fontSize: '20px', 
               fontWeight: 'bold', 
               letterSpacing: '2px',
-              textTransform: 'uppercase'
+              textTransform: 'uppercase',
+              whiteSpace: 'nowrap'
             }}>Sam Rutan</span>
           </div>
           
           {/* Desktop Navigation */}
           <nav style={{
-            display: 'flex',
+            display: isMobile ? 'none' : 'flex',
             gap: '48px'
           }}>
             {sections.map((item) => (
-              <button
+              <NavLink
                 key={item}
-                onClick={() => handleNavClick(item)}
-                style={{ 
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  textTransform: 'uppercase',
-                  letterSpacing: '2px',
-                  fontSize: '14px',
-                  color: activeSection === item ? 'white' : '#888',
-                  transition: 'color 0.3s'
-                }}
+                to={item === 'home' ? '/' : `/${item}`}
+                end
+                style={({ isActive }) => navLinkStyle(isActive)}
               >
                 {item}
-              </button>
+              </NavLink>
             ))}
           </nav>
+
+          <button
+            type="button"
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen((open) => !open)}
+            style={{
+              display: isMobile ? 'flex' : 'none',
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: 'none',
+              border: 'none',
+              color: 'white',
+              width: '40px',
+              height: '40px',
+              cursor: 'pointer',
+              fontSize: '28px',
+              lineHeight: 1,
+              padding: 0
+            }}
+          >
+            {isMenuOpen ? '×' : '☰'}
+          </button>
         </div>
       </header>
+
+      {isMobile && isMenuOpen && (
+        <nav
+          aria-label="Mobile"
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'black',
+            zIndex: 30,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '36px'
+          }}
+        >
+          {sections.map((item) => (
+            <NavLink
+              key={item}
+              to={item === 'home' ? '/' : `/${item}`}
+              end
+              onClick={() => setIsMenuOpen(false)}
+              style={({ isActive }) => navLinkStyle(isActive, '28px')}
+            >
+              {item}
+            </NavLink>
+          ))}
+        </nav>
+      )}
 
       {/* Main Content */}
       <main>
@@ -263,6 +390,7 @@ const Portfolio = () => {
                 alt="Full Moon" 
                 style={{
                   width: '400px',
+                  maxWidth: '100%',
                   height: 'auto',
                   objectFit: 'cover'
                 }}
@@ -282,10 +410,11 @@ const Portfolio = () => {
                 }}>Assistant Editor</p>
                 
                 <h1 style={{
-                  fontSize: '48px',
+                  fontSize: 'clamp(28px, 11vw, 48px)',
                   fontWeight: 'bold',
                   lineHeight: '1.2',
-                  marginBottom: '16px'
+                  marginBottom: '16px',
+                  maxWidth: '100%'
                 }}>
                   TELLING<br />
                   <span className="text-stroke">STORIES</span><br />
@@ -302,7 +431,7 @@ const Portfolio = () => {
                   Post production professional with credits on Disney+, Amazon Prime, and Netflix. Based in New Jersey.
                 </p>
                 
-                <div style={{ display: 'flex', flexDirection: 'row', gap: '20px', justifyContent: 'center' }}>
+                <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '20px', justifyContent: 'center', maxWidth: '100%' }}>
                   <button 
                     style={{
                       background: 'none',
@@ -386,6 +515,7 @@ const Portfolio = () => {
                       }}>
                         <iframe
                           src="https://player.vimeo.com/video/1237041147"
+                          title="Sam Rutan Assistant Editor Reel 2026"
                           style={{
                             position: 'absolute',
                             top: 0,
@@ -491,7 +621,7 @@ const Portfolio = () => {
                     <div style={{ padding: '40px 0 24px 0' }}>
                       <div style={{ 
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
+                        gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 350px), 1fr))',
                         gap: '32px',
                         marginTop: '24px'
                       }}>
@@ -780,8 +910,8 @@ const Portfolio = () => {
                 { name: 'MLB', year: '2026' },
                 { name: 'NETFLIX', year: '2023' },
                 { name: 'DISNEY+', year: '2021-2022' },
-                { name: 'AMAZON', year: '2019-2020' },
-                { name: 'WHITEHOUSE POST', year: '2018-2019' }
+                { name: 'AMAZON', year: '2019-2021' },
+                { name: 'WHITEHOUSE POST', year: '2018-2020' }
               ].map(collab => (
                 <div key={collab.name} style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
                   <div style={{ 
@@ -790,7 +920,7 @@ const Portfolio = () => {
                     alignItems: 'center' 
                   }}>
                     <p style={{ fontSize: '18px', fontWeight: 'bold' }}>{collab.name}</p>
-                    <span style={{ color: '#666' }}>{collab.year}</span>
+                    <span style={{ color: '#666', flexShrink: 0, whiteSpace: 'nowrap' }}>{collab.year}</span>
                   </div>
                 </div>
               ))}
@@ -824,28 +954,34 @@ const Portfolio = () => {
             
             <div style={{
               display: 'flex',
-              flexDirection: 'row',
+              flexDirection: isMobile ? 'column' : 'row',
               gap: '40px',
-              alignItems: 'flex-start'
+              alignItems: isMobile ? 'center' : 'flex-start'
             }}>
               {/* Headshot */}
               <div style={{
-                width: '300px',
-                height: '300px',
+                width: isMobile ? '200px' : '300px',
+                height: isMobile ? '200px' : '300px',
                 borderRadius: '50%',
                 overflow: 'hidden',
                 border: '1px solid rgba(0, 255, 255, 0.3)',
                 boxShadow: '0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(0, 255, 255, 0.3), 0 0 60px rgba(0, 255, 255, 0.1)',
-                flexShrink: 0
+                flexShrink: 0,
+                backgroundColor: '#2a2a2a'
               }}>
-                <img 
-                  src={headshot} 
-                  alt="Sam Rutan Headshot" 
+                <img
+                  ref={headshotRef}
+                  src={headshot}
+                  alt="Sam Rutan Headshot"
+                  loading="eager"
+                  onLoad={() => setHeadshotLoaded(true)}
                   style={{
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
-                    objectPosition: 'center 10%'
+                    objectPosition: 'center 10%',
+                    opacity: headshotLoaded ? 1 : 0,
+                    transition: 'opacity 0.4s ease'
                   }}
                 />
               </div>
@@ -854,7 +990,9 @@ const Portfolio = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '40px',
-                flex: 1
+                flex: 1,
+                width: isMobile ? '100%' : 'auto',
+                minWidth: 0
               }}>
                 <div>
                   <p style={{ fontSize: '18px', lineHeight: '1.6', color: '#ccc', marginBottom: '24px' }}>
@@ -905,7 +1043,7 @@ const Portfolio = () => {
                 
                 {/* Experience */}
                 <div style={{ marginTop: '40px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '24px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginBottom: '24px' }}>
                     <h3 style={{ fontSize: '24px', fontWeight: 'bold' }}>EXPERIENCE</h3>
                     <a
                       href="/portfolio-new/Sam_Rutan_Resume_Editorial.pdf"
@@ -932,65 +1070,65 @@ const Portfolio = () => {
                     gap: '16px' 
                   }}>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}><a href="https://www.youtube.com/watch?v=p35Kp8mMKY8" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>We Are Osos</a></h4>
-                        <span style={{ color: '#666' }}>2026</span>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '16px', marginBottom: '4px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold', minWidth: 0, flex: '1' }}><a href="https://www.youtube.com/watch?v=p35Kp8mMKY8" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>We Are Osos</a></h4>
+                        <span style={{ color: '#666', flexShrink: 0, whiteSpace: 'nowrap' }}>2026</span>
                       </div>
                       <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>Supper Club · Mortal Media · YouTube</p>
                       <p style={{ color: '#999', fontSize: '14px' }}>Lead Assistant Editor · Osos Monterrey, owned by Ryan Kalil &amp; Blake Griffin</p>
                     </div>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}><a href="https://www.youtube.com/watch?v=oVNo29ftMvA" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Homecoming: The Tokyo Series</a></h4>
-                        <span style={{ color: '#666' }}>2026</span>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '16px', marginBottom: '4px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold', minWidth: 0, flex: '1' }}><a href="https://www.youtube.com/watch?v=oVNo29ftMvA" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Homecoming: The Tokyo Series</a></h4>
+                        <span style={{ color: '#666', flexShrink: 0, whiteSpace: 'nowrap' }}>2026</span>
                       </div>
                       <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>Supper Club · MLB Studios · CNN Films</p>
                       <p style={{ color: '#999', fontSize: '14px' }}>Assistant Editor · 2025 MLB Tokyo Series</p>
                     </div>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}><a href="https://www.youtube.com/watch?v=vHGbMZ5g5kk" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Rather</a></h4>
-                        <span style={{ color: '#666' }}>2023</span>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '16px', marginBottom: '4px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold', minWidth: 0, flex: '1' }}><a href="https://www.youtube.com/watch?v=vHGbMZ5g5kk" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Rather</a></h4>
+                        <span style={{ color: '#666', flexShrink: 0, whiteSpace: 'nowrap' }}>2023</span>
                       </div>
                       <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>Wavelength · Netflix</p>
                       <p style={{ color: '#999', fontSize: '14px' }}>Assistant Editor · Dan Rather feature documentary</p>
                     </div>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}><a href="https://www.youtube.com/watch?v=-VVHUq4tOzg" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Olivia Rodrigo: driving home 2 u</a></h4>
-                        <span style={{ color: '#666' }}>2022</span>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '16px', marginBottom: '4px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold', minWidth: 0, flex: '1' }}><a href="https://www.youtube.com/watch?v=-VVHUq4tOzg" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Olivia Rodrigo: driving home 2 u</a></h4>
+                        <span style={{ color: '#666', flexShrink: 0, whiteSpace: 'nowrap' }}>2022</span>
                       </div>
                       <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>Supper Club · Disney+</p>
                       <p style={{ color: '#999', fontSize: '14px' }}>Lead Assistant Editor · music documentary</p>
                     </div>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}><a href="https://www.youtube.com/watch?v=EeaCZt31hVA" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Mary J. Blige's My Life</a></h4>
-                        <span style={{ color: '#666' }}>2021</span>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '16px', marginBottom: '4px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold', minWidth: 0, flex: '1' }}><a href="https://www.youtube.com/watch?v=EeaCZt31hVA" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Mary J. Blige's My Life</a></h4>
+                        <span style={{ color: '#666', flexShrink: 0, whiteSpace: 'nowrap' }}>2019–2021</span>
                       </div>
                       <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>eOne · Amazon Prime</p>
                       <p style={{ color: '#999', fontSize: '14px' }}>Assistant Editor · music documentary</p>
                     </div>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Branded &amp; Commercial Work</h4>
-                        <span style={{ color: '#666' }}>2018–2020</span>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '16px', marginBottom: '4px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold', minWidth: 0, flex: '1' }}>Branded &amp; Commercial Work</h4>
+                        <span style={{ color: '#666', flexShrink: 0, whiteSpace: 'nowrap' }}>2018–2020</span>
                       </div>
                       <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>Whitehouse Post</p>
                       <p style={{ color: '#999', fontSize: '14px' }}>Assistant Editor · editorial support &amp; media management, leading post house</p>
                     </div>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}><a href="https://www.youtube.com/watch?v=jUBmXH_X5QI" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>The Girl and the Picture</a></h4>
-                        <span style={{ color: '#666' }}>2018</span>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '16px', marginBottom: '4px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold', minWidth: 0, flex: '1' }}><a href="https://www.youtube.com/watch?v=jUBmXH_X5QI" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>The Girl and the Picture</a></h4>
+                        <span style={{ color: '#666', flexShrink: 0, whiteSpace: 'nowrap' }}>2018</span>
                       </div>
                       <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>Cause &amp; Affect Media · USC Shoah Foundation</p>
                       <p style={{ color: '#999', fontSize: '14px' }}>Assistant Editor · award-winning documentary short</p>
                     </div>
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}><a href="https://www.youtube.com/watch?v=b49QEQsNUj0" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Daughters of Destiny</a></h4>
-                        <span style={{ color: '#666' }}>2017</span>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '16px', marginBottom: '4px' }}>
+                        <h4 style={{ fontSize: '18px', fontWeight: 'bold', minWidth: 0, flex: '1' }}><a href="https://www.youtube.com/watch?v=b49QEQsNUj0" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Daughters of Destiny</a></h4>
+                        <span style={{ color: '#666', flexShrink: 0, whiteSpace: 'nowrap' }}>2017</span>
                       </div>
                       <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>Cause &amp; Affect Media · Netflix</p>
                       <p style={{ color: '#999', fontSize: '14px' }}>Post-Production Assistant · episodic international doc series</p>
@@ -1024,8 +1162,8 @@ const Portfolio = () => {
             
             <div style={{
               display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: '60px'
+              gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+              gap: isMobile ? '48px' : '60px'
             }}>
               {/* Contact Info */}
               <div>
@@ -1033,7 +1171,7 @@ const Portfolio = () => {
                 
                 <div style={{ marginBottom: '32px' }}>
                   <p style={{ color: '#999', fontSize: '14px', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '8px' }}>Email</p>
-                  <p style={{ fontSize: '20px', fontWeight: '500' }}>sam.rutan21@gmail.com</p>
+                  <a href="mailto:sam.rutan21@gmail.com" style={{ fontSize: '20px', fontWeight: '500', color: 'inherit', textDecoration: 'none' }}>sam.rutan21@gmail.com</a>
                 </div>
                 
                 <div style={{ marginBottom: '32px' }}>
@@ -1092,6 +1230,7 @@ const Portfolio = () => {
                         borderBottom: '1px solid #333',
                         color: 'white',
                         fontSize: '16px',
+                        fontFamily: 'inherit',
                         outline: 'none'
                       }}
                     />
@@ -1113,6 +1252,7 @@ const Portfolio = () => {
                         borderBottom: '1px solid #333',
                         color: 'white',
                         fontSize: '16px',
+                        fontFamily: 'inherit',
                         outline: 'none'
                       }}
                     />
@@ -1134,6 +1274,7 @@ const Portfolio = () => {
                         borderBottom: '1px solid #333',
                         color: 'white',
                         fontSize: '16px',
+                        fontFamily: 'inherit',
                         outline: 'none',
                         resize: 'vertical'
                       }}
@@ -1170,4 +1311,10 @@ const Portfolio = () => {
 );
 };
 
-export default Portfolio;
+const App = () => (
+  <HashRouter>
+    <Portfolio />
+  </HashRouter>
+);
+
+export default App;
