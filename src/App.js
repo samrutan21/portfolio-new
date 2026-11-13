@@ -1173,6 +1173,11 @@ const Portfolio = () => {
                   <p style={{ color: '#999', fontSize: '14px', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '8px' }}>Email</p>
                   <a href="mailto:sam.rutan21@gmail.com" style={{ fontSize: '20px', fontWeight: '500', color: 'inherit', textDecoration: 'none' }}>sam.rutan21@gmail.com</a>
                 </div>
+
+                <div style={{ marginBottom: '32px' }}>
+                  <p style={{ color: '#999', fontSize: '14px', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '8px' }}>LinkedIn</p>
+                  <a href="https://www.linkedin.com/in/sam-rutan/" target="_blank" rel="noopener noreferrer" style={{ fontSize: '20px', fontWeight: '500', color: 'inherit', textDecoration: 'none', overflowWrap: 'anywhere' }}>linkedin.com/in/sam-rutan</a>
+                </div>
                 
                 <div style={{ marginBottom: '32px' }}>
                   <p style={{ color: '#999', fontSize: '14px', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '8px' }}>Based in</p>
