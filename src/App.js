@@ -1104,7 +1104,7 @@ const Portfolio = () => {
                     <div style={{ borderBottom: '1px solid #333', paddingBottom: '16px' }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '16px', marginBottom: '4px' }}>
                         <h4 style={{ fontSize: '18px', fontWeight: 'bold', minWidth: 0, flex: '1' }}><a href="https://www.youtube.com/watch?v=EeaCZt31hVA" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Mary J. Blige's My Life</a></h4>
-                        <span style={{ color: '#666', flexShrink: 0, whiteSpace: 'nowrap' }}>2019–2021</span>
+                        <span style={{ color: '#666', flexShrink: 0, whiteSpace: 'nowrap' }}>2021</span>
                       </div>
                       <p style={{ color: '#777', fontSize: '14px', marginBottom: '4px' }}>eOne · Amazon Prime</p>
                       <p style={{ color: '#999', fontSize: '14px' }}>Assistant Editor · music documentary</p>
